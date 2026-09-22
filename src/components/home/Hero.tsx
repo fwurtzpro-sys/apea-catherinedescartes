@@ -5,36 +5,38 @@ import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pb-16 pt-10 sm:pb-24 sm:pt-14 lg:pt-16">
+    <section className="relative overflow-hidden bg-white pb-8 pt-10 sm:pb-10 sm:pt-14 lg:pt-16">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:px-8">
         {/* Text column */}
         <div className="relative">
-          <Burst className="absolute -left-2 top-24 hidden h-9 w-9 text-orange-400 lg:block" />
+          <Burst className="absolute -left-10 top-24 hidden h-8 w-8 text-orange-400 lg:block" />
 
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             Association de parents d&rsquo;élèves
           </p>
 
-          <h1 className="mt-3 font-sans text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-navy-900 sm:text-6xl">
-            Convivialité
+          <h1 className="mt-3">
+            <span className="block font-sans text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-navy-900 sm:text-6xl">
+              Convivialité
+            </span>
+            <span className="font-script -mt-1 flex items-center gap-2 text-4xl font-normal text-navy-900 sm:text-5xl">
+              au cœur
+              <HeartDoodle className="h-7 w-7 text-orange-400 sm:h-8 sm:w-8" />
+            </span>
+            <span className="block font-sans text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl">
+              de l&rsquo;école&nbsp;!
+            </span>
           </h1>
-          <p className="font-script -mt-1 flex items-center gap-2 text-4xl text-navy-900 sm:text-5xl">
-            au cœur
-            <HeartDoodle className="h-7 w-7 text-orange-400 sm:h-8 sm:w-8" />
-          </p>
-          <h2 className="font-sans text-4xl font-extrabold leading-[1.05] tracking-tight text-navy-900 sm:text-5xl">
-            de l&rsquo;école&nbsp;!
-          </h2>
 
-          <p className="mt-6 max-w-md text-base leading-relaxed text-navy-900/70">
+          <p className="mt-6 max-w-lg text-base leading-relaxed text-navy-900/70">
             L&rsquo;APEA Catherine Descartes est une association dynamique,
             régie par la loi 1901, composée de parents bénévoles.
           </p>
 
-          <h3 className="mt-5 text-lg font-bold text-orange-500">
+          <h2 className="mt-5 text-lg font-bold text-orange-500">
             Notre mission&nbsp;?
-          </h3>
-          <p className="mt-1 max-w-md text-base leading-relaxed text-navy-900/70">
+          </h2>
+          <p className="mt-1 max-w-lg text-base leading-relaxed text-navy-900/70">
             Soutenir financièrement les sorties et projets pédagogiques
             organisés par l&rsquo;école.
           </p>

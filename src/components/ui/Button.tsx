@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type ButtonProps = {
   children: ReactNode;
   variant?: "primary" | "outline" | "ghost";
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
   icon?: ReactNode;
   className?: string;
   href?: string;
@@ -21,6 +21,7 @@ const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
 };
 
 const SIZE_CLASSES: Record<NonNullable<ButtonProps["size"]>, string> = {
+  sm: "px-3.5 py-2 text-[13px]",
   md: "px-5 py-2.5 text-sm",
   lg: "px-7 py-3.5 text-base",
 };
@@ -39,7 +40,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} onClick={onClick}>
         {children}
         {icon}
       </Link>

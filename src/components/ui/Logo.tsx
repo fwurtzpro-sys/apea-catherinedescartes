@@ -2,12 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { SITE } from "@/lib/site-config";
 
-/**
- * Swap this path for the official logo file once supplied (SVG or PNG,
- * transparent background) — nothing else in the header/footer needs to
- * change.
- */
-const LOGO_SRC = "/logo-placeholder.svg";
+/** Official APEA logo, supplied by the association — used unmodified. */
+const LOGO_SRC = "/logo-apea.png";
 
 type LogoProps = {
   className?: string;
@@ -30,19 +26,19 @@ export function Logo({ className = "", variant = "dark" }: LogoProps) {
         alt={`Logo ${SITE.name}`}
         width={56}
         height={56}
-        className="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
+        className="h-11 w-11 shrink-0 sm:h-12 sm:w-12 xl:h-[3.25rem] xl:w-[3.25rem]"
         priority
       />
-      <span className="flex flex-col leading-tight">
+      <span className="flex flex-col whitespace-nowrap leading-tight">
         <span
-          className={`text-lg font-extrabold tracking-tight sm:text-xl ${textColor}`}
+          className={`text-sm font-extrabold tracking-tight sm:text-base ${textColor}`}
         >
           {SITE.shortName}
         </span>
-        <span className={`text-sm font-semibold sm:text-base ${subTextColor}`}>
+        <span className={`text-[11px] font-semibold sm:text-xs ${subTextColor}`}>
           Catherine Descartes
         </span>
-        <span className="font-script text-lg leading-none text-orange-400">
+        <span className="font-script text-sm leading-none text-orange-400 sm:text-base">
           {SITE.city}
         </span>
       </span>

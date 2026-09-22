@@ -36,7 +36,12 @@ export function Actions() {
             className="flex flex-col items-center gap-4 text-center lg:px-6"
           >
             <span className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-100 text-orange-500">
-              <Icon className="h-7 w-7" strokeWidth={2} />
+              <Icon
+                className="h-7 w-7"
+                strokeWidth={1.5}
+                fill="currentColor"
+                fillOpacity={0.35}
+              />
             </span>
             <p className="max-w-[10rem] text-sm font-semibold text-navy-900">
               {label}

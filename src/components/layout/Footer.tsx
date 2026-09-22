@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import {
   FacebookIcon,
@@ -23,7 +23,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-4 pb-10 pt-14 sm:px-6 lg:px-8">
         <HeartDoodle className="absolute right-6 top-10 hidden h-7 w-7 text-orange-400/70 sm:block" />
 
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 [&>div]:min-w-0">
           <div>
             <Logo variant="light" />
             <p className="font-script mt-4 text-2xl text-orange-400">
@@ -56,25 +56,44 @@ export function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-wide text-white">
               Nous contacter
             </h3>
-            <ul className="mt-4 flex flex-col gap-3">
-              <li className="flex items-start gap-2.5">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="text-sm text-cream-50/80 transition-colors hover:text-orange-400"
+            {SITE.emailConfirmed || SITE.addressConfirmed ? (
+              <ul className="mt-4 flex flex-col gap-3">
+                {SITE.emailConfirmed && (
+                  <li className="flex items-start gap-2.5">
+                    <Mail className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                    <a
+                      href={`mailto:${SITE.email}`}
+                      className="break-all text-sm text-cream-50/80 transition-colors hover:text-orange-400"
+                    >
+                      {SITE.email}
+                    </a>
+                  </li>
+                )}
+                {SITE.addressConfirmed && (
+                  <li className="flex items-start gap-2.5">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
+                    <span className="text-sm text-cream-50/80">
+                      {SITE.address.line1}
+                      <br />
+                      {SITE.address.line2}
+                    </span>
+                  </li>
+                )}
+              </ul>
+            ) : (
+              <div className="mt-4">
+                <p className="text-sm text-cream-50/70">
+                  Toutes nos coordonnées sont réunies sur notre page Contact.
+                </p>
+                <Link
+                  href="/contact"
+                  className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-orange-400 transition-colors hover:text-orange-300"
                 >
-                  {SITE.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                <span className="text-sm text-cream-50/80">
-                  {SITE.address.line1}
-                  <br />
-                  {SITE.address.line2}
-                </span>
-              </li>
-            </ul>
+                  Nous contacter
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            )}
           </div>
 
           <div>
@@ -100,26 +119,28 @@ export function Footer() {
               </li>
             </ul>
 
-            <div className="mt-5 flex gap-3">
-              <a
-                href={SITE.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook de l'APEA Catherine Descartes"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-cream-50/30 text-cream-50 transition-colors hover:border-orange-400 hover:text-orange-400"
-              >
-                <FacebookIcon className="h-4 w-4" />
-              </a>
-              <a
-                href={SITE.social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram de l'APEA Catherine Descartes"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-cream-50/30 text-cream-50 transition-colors hover:border-orange-400 hover:text-orange-400"
-              >
-                <InstagramIcon className="h-4 w-4" />
-              </a>
-            </div>
+            {SITE.socialConfirmed && (
+              <div className="mt-5 flex gap-3">
+                <a
+                  href={SITE.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook de l'APEA Catherine Descartes"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-cream-50/30 text-cream-50 transition-colors hover:border-orange-400 hover:text-orange-400"
+                >
+                  <FacebookIcon className="h-4 w-4" />
+                </a>
+                <a
+                  href={SITE.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram de l'APEA Catherine Descartes"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-cream-50/30 text-cream-50 transition-colors hover:border-orange-400 hover:text-orange-400"
+                >
+                  <InstagramIcon className="h-4 w-4" />
+                </a>
+              </div>
+            )}
           </div>
         </div>
 
