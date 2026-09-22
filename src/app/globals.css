@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f243d;
+
+  /* Brand palette extracted from the validated mockup */
+  --color-cream-50: #fffdfb;
+  --color-cream-100: #fdf6ed;
+  --color-cream-200: #fbeedd;
+  --color-cream-300: #f6e2c8;
+
+  --color-navy-500: #2c5178;
+  --color-navy-700: #163353;
+  --color-navy-800: #11294a;
+  --color-navy-900: #0f243d;
+  --color-navy-950: #0a1a2e;
+
+  --color-orange-50: #fef1e6;
+  --color-orange-100: #fce0c4;
+  --color-orange-300: #f7a561;
+  --color-orange-400: #f5811f;
+  --color-orange-500: #ea6d1b;
+  --color-orange-600: #c9590f;
+  --color-orange-700: #a3480c;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-cream-50: var(--color-cream-50);
+  --color-cream-100: var(--color-cream-100);
+  --color-cream-200: var(--color-cream-200);
+  --color-cream-300: var(--color-cream-300);
+
+  --color-navy-500: var(--color-navy-500);
+  --color-navy-700: var(--color-navy-700);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-900: var(--color-navy-900);
+  --color-navy-950: var(--color-navy-950);
+
+  --color-orange-50: var(--color-orange-50);
+  --color-orange-100: var(--color-orange-100);
+  --color-orange-300: var(--color-orange-300);
+  --color-orange-400: var(--color-orange-400);
+  --color-orange-500: var(--color-orange-500);
+  --color-orange-600: var(--color-orange-600);
+  --color-orange-700: var(--color-orange-700);
+
+  --font-sans: var(--font-poppins);
+  --font-script: var(--font-caveat);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
