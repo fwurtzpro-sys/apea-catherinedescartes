@@ -5,6 +5,8 @@ export type ApeaEvent = {
   time: string;
   location: string;
   ctaLabel: string;
+  /** Visuel réel de l'événement, s'il a été fourni par l'association. */
+  photoSrc?: string;
 };
 
 /**
@@ -20,5 +22,6 @@ export const UPCOMING_EVENTS: ApeaEvent[] = [
     time: "De 8h30 à 17h30",
     location: "Salle Roger Michel – Elven",
     ctaLabel: "J'aide sur cet événement",
+    photoSrc: "/apea-troc-et-puces-2026.png",
   },
 ];

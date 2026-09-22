@@ -1,17 +1,19 @@
-import { ArrowRight, School } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { HeartDoodle } from "@/components/ui/Decorations";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 
 export function About() {
   return (
     <section className="mx-auto mt-16 max-w-7xl px-4 sm:mt-20 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="relative overflow-hidden rounded-[2.5rem]">
-          <PlaceholderPhoto
-            icon={School}
-            label="Photo — école Catherine Descartes"
-            className="aspect-[4/3] w-full"
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem]">
+          <Image
+            src="/apea-ecole-catherine-descartes.png"
+            alt="École Catherine Descartes — Groupe Scolaire Catherine Descartes"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover"
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-navy-950/70 via-navy-950/20 to-transparent" />
           <p className="font-script pointer-events-none absolute bottom-6 left-6 text-2xl leading-tight text-white drop-shadow sm:text-3xl">

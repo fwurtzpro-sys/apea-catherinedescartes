@@ -1,7 +1,7 @@
-import { ArrowRight, Users } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Burst, HeartDoodle } from "@/components/ui/Decorations";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 
 export function Hero() {
   return (
@@ -57,11 +57,16 @@ export function Hero() {
           <Burst className="absolute -top-4 left-8 h-8 w-8 text-orange-400 sm:left-16" />
           <Burst className="absolute right-4 top-16 h-6 w-6 text-orange-400" />
 
-          <PlaceholderPhoto
-            icon={Users}
-            label="Photo — élèves de l'école (à intégrer)"
-            className="aspect-[4/3.6] w-full [border-radius:58%_42%_38%_62%/62%_40%_60%_38%] sm:[border-radius:60%_40%_35%_65%/65%_35%_65%_35%]"
-          />
+          <div className="relative aspect-[4/3.6] w-full overflow-hidden [border-radius:58%_42%_38%_62%/62%_40%_60%_38%] sm:[border-radius:60%_40%_35%_65%/65%_35%_65%_35%]">
+            <Image
+              src="/apea-enfants-ecole.png"
+              alt="Élèves de l'école Catherine Descartes"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+              priority
+            />
+          </div>
 
           <div className="absolute -top-2 right-2 max-w-[190px] rounded-3xl rounded-bl-md bg-navy-900 px-5 py-3.5 text-white shadow-lg shadow-navy-900/30 sm:right-4 sm:top-2">
             <p className="font-script text-lg leading-tight sm:text-xl">

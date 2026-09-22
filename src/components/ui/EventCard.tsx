@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, Calendar, Clock, MapPin, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
@@ -19,11 +20,23 @@ export function EventCard({
       id={event.slug}
       className="grid scroll-mt-24 grid-cols-1 overflow-hidden rounded-[2.5rem] bg-cream-100 lg:grid-cols-2"
     >
-      <PlaceholderPhoto
-        icon={ShoppingBag}
-        label={photoLabel}
-        className="aspect-[16/10] w-full lg:aspect-auto"
-      />
+      {event.photoSrc ? (
+        <div className="relative aspect-[16/10] w-full bg-cream-200 lg:aspect-auto">
+          <Image
+            src={event.photoSrc}
+            alt={event.title}
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-contain p-4"
+          />
+        </div>
+      ) : (
+        <PlaceholderPhoto
+          icon={ShoppingBag}
+          label={photoLabel}
+          className="aspect-[16/10] w-full lg:aspect-auto"
+        />
+      )}
 
       <div className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12">
         <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
