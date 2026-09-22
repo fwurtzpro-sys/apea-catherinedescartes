@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import { Burst } from "@/components/ui/Decorations";
 
 type PageHeroProps = {
   eyebrow: string;
   title: string;
-  description?: string;
+  description?: ReactNode;
 };
 
 export function PageHero({ eyebrow, title, description }: PageHeroProps) {
