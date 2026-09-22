@@ -8,12 +8,17 @@ type EventCardProps = {
   event: ApeaEvent;
   eyebrow?: string;
   photoLabel?: string;
+  /** Overrides the default CTA label/destination for this instance only. */
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 export function EventCard({
   event,
   eyebrow = "Événement à venir",
   photoLabel = "Photo — édition précédente de l'événement",
+  ctaLabel,
+  ctaHref = "/evenements/inscriptions",
 }: EventCardProps) {
   return (
     <div
@@ -62,12 +67,12 @@ export function EventCard({
         </ul>
 
         <Button
-          href="/evenements/inscriptions"
+          href={ctaHref}
           size="lg"
           icon={<ArrowRight className="h-4 w-4" />}
           className="mt-4 w-fit"
         >
-          {event.ctaLabel}
+          {ctaLabel ?? event.ctaLabel}
         </Button>
       </div>
     </div>

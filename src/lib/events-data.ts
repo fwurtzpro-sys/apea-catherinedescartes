@@ -20,7 +20,7 @@ export const UPCOMING_EVENTS: ApeaEvent[] = [
     title: "Troc et Puces",
     date: "Dimanche 15 novembre 2026",
     time: "De 8h30 à 17h30",
-    location: "Salle Roger Michel – Elven",
+    location: "Complexe sportif Roger Michel – Elven",
     ctaLabel: "J'aide sur cet événement",
     photoSrc: "/apea-troc-et-puces-2026.png",
   },

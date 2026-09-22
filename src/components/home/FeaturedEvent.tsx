@@ -8,7 +8,11 @@ export function FeaturedEvent() {
 
   return (
     <Container className="mt-16 sm:mt-20">
-      <EventCard event={event} />
+      <EventCard
+        event={event}
+        ctaLabel="En savoir plus"
+        ctaHref="/evenements/troc-et-puces"
+      />
     </Container>
   );
 }

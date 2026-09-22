@@ -36,9 +36,18 @@ export default function EvenementsPage() {
         <h2 className="sr-only">Événement à venir</h2>
         {UPCOMING_EVENTS.length > 0 ? (
           <div className="flex flex-col gap-8">
-            {UPCOMING_EVENTS.map((event) => (
-              <EventCard key={event.slug} event={event} />
-            ))}
+            {UPCOMING_EVENTS.map((event) =>
+              event.slug === "troc-et-puces" ? (
+                <EventCard
+                  key={event.slug}
+                  event={event}
+                  ctaLabel="En savoir plus"
+                  ctaHref="/evenements/troc-et-puces"
+                />
+              ) : (
+                <EventCard key={event.slug} event={event} />
+              )
+            )}
           </div>
         ) : (
           <EmptyState
