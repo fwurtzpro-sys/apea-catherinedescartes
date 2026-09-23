@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { School, Heart, Users2 } from "lucide-react";
+import Image from "next/image";
+import { Heart, Users2 } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { JoinCta } from "@/components/ui/JoinCta";
-import { PlaceholderPhoto } from "@/components/ui/PlaceholderPhoto";
 import { HeartDoodle } from "@/components/ui/Decorations";
 
 export const metadata: Metadata = {
@@ -24,8 +24,8 @@ export default function QuiSommesNousPage() {
       {/* Présentation */}
       <Container className="py-16 sm:py-20">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative">
-            <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400 lg:hidden" />
+          <div className="relative order-2 lg:order-1">
+            <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400" />
             <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
               Présentation
             </p>
@@ -40,11 +40,15 @@ export default function QuiSommesNousPage() {
               parents bénévoles.
             </p>
           </div>
-          <PlaceholderPhoto
-            icon={School}
-            label="Photo — vie de l'association (à intégrer)"
-            className="aspect-[4/3] w-full rounded-[2.5rem]"
-          />
+          <div className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] lg:order-2">
+            <Image
+              src="/apea-ecole-catherine-descartes.png"
+              alt="École Catherine Descartes — Groupe Scolaire Catherine Descartes"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         </div>
       </Container>
 
