@@ -40,25 +40,6 @@ export function HeartDoodle({ className = "" }: DecoProps) {
   );
 }
 
-/** Outlined star accent (partners section). */
-export function StarDoodle({ className = "" }: DecoProps) {
-  return (
-    <svg
-      viewBox="0 0 40 40"
-      fill="none"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M20 2 24.9 14.6 38 16.1 28 25 30.9 38 20 31.2 9.1 38 12 25 2 16.1 15.1 14.6Z"
-        stroke="currentColor"
-        strokeWidth="2.4"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 /** Small squiggly underline used beneath handwritten accents. */
 export function Squiggle({ className = "" }: DecoProps) {
   return (

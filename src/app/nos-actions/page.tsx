@@ -3,7 +3,6 @@ import {
   Coins,
   GraduationCap,
   PartyPopper,
-  ShoppingBag,
   Sparkles,
   Users,
 } from "lucide-react";
@@ -44,12 +43,6 @@ const ACTION_DETAILS: ActionDetail[] = [
       "L'APEA organise des événements tout au long de l'année scolaire, préparés collectivement par les parents bénévoles.",
   },
   {
-    icon: ShoppingBag,
-    title: "Ventes pour récolter des fonds",
-    description:
-      "Des ventes de produits sont régulièrement organisées par l'association afin de financer ses actions au bénéfice des élèves.",
-  },
-  {
     icon: PartyPopper,
     title: "Moments conviviaux",
     description:
@@ -57,12 +50,7 @@ const ACTION_DETAILS: ActionDetail[] = [
   },
 ];
 
-const ACTION_TYPES = [
-  "Troc et Puces",
-  "Ventes de produits",
-  "Carnaval",
-  "Fête de l'école",
-];
+const ACTION_TYPES = ["Troc et Puces"];
 
 export default function NosActionsPage() {
   return (
@@ -74,7 +62,7 @@ export default function NosActionsPage() {
       />
 
       <Container className="py-16 sm:py-20">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {ACTION_DETAILS.map(({ icon: Icon, title, description }) => (
             <div
               key={title}

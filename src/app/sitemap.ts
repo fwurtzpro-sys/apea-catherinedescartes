@@ -9,7 +9,6 @@ const ROUTES = [
   "/evenements/inscriptions",
   "/evenements/troc-et-puces",
   "/nos-actions",
-  "/nos-partenaires",
   "/actualites",
   "/contact",
 ];

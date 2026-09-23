@@ -16,7 +16,6 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: "Nos actions", href: "/nos-actions" },
-  { label: "Nos partenaires", href: "/nos-partenaires" },
   { label: "Actualités", href: "/actualites" },
   { label: "Contact", href: "/contact" },
 ];
