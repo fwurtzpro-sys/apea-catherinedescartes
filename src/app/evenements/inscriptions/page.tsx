@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { ClipboardList } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
-import { UPCOMING_EVENTS } from "@/lib/events-data";
 
 export const metadata: Metadata = {
   title: "Inscriptions",
@@ -11,14 +10,12 @@ export const metadata: Metadata = {
 };
 
 export default function InscriptionsPage() {
-  const event = UPCOMING_EVENTS[0];
-
   return (
     <>
       <PageHero
         eyebrow="Événements"
         title="Inscriptions"
-        description="Les modalités d'inscription à chaque événement apparaîtront ici dès leur ouverture."
+        description="Retrouvez ici les inscriptions pour participer bénévolement aux événements organisés par l'APEA."
       />
 
       <Container className="py-16 sm:py-20">
@@ -27,19 +24,11 @@ export default function InscriptionsPage() {
             <ClipboardList className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
           </span>
           <p className="text-lg font-bold text-navy-900">
-            Inscriptions bientôt ouvertes
+            Inscriptions bénévoles bientôt ouvertes
           </p>
           <p className="text-navy-900/70">
-            Cette page est prête à accueillir le formulaire d&rsquo;inscription
-            {event ? (
-              <>
-                {" "}
-                à l&rsquo;événement <strong>{event.title}</strong> (
-                {event.date})
-              </>
-            ) : null}
-            {" "}
-            dès que l&rsquo;association ouvrira les inscriptions.
+            Les modalités pour participer bénévolement au prochain événement
+            seront disponibles ici dès l&rsquo;ouverture des inscriptions.
           </p>
         </div>
       </Container>
