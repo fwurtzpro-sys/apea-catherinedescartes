@@ -31,7 +31,7 @@ export default function TrocEtPucesPage() {
         title="Troc et Puces d'Elven"
         description={
           <>
-            Dimanche 15 novembre 2026, de 8h30 à 17h30, au{" "}
+            Dimanche 15 novembre 2026, de 8h30 à 17h30{" "}
             <span className="whitespace-nowrap">
               Complexe sportif Roger Michel – Elven
             </span>
