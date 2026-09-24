@@ -36,9 +36,9 @@ export const SITE = {
   city: "Elven",
   tagline: "Association de parents d'élèves",
 
-  // Reprise de la maquette — non confirmée, ne pas afficher tant que false.
-  email: "apea.catherinedescartes@gmail.com",
-  emailConfirmed: false,
+  // Adresse e-mail générale officiellement confirmée par l'APEA.
+  email: "apeaelven@gmail.com",
+  emailConfirmed: true,
 
   // Reprise de la maquette — non confirmée, ne pas afficher tant que false.
   address: {

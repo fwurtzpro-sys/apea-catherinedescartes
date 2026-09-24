@@ -33,7 +33,7 @@ export default function ContactPage() {
                   className="flex items-start gap-4 rounded-3xl bg-cream-100 p-6 transition-shadow hover:shadow-lg hover:shadow-orange-500/10"
                 >
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
-                    <Mail className="h-5 w-5" aria-hidden="true" />
+                    <Mail className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block font-bold text-navy-900">
@@ -49,7 +49,7 @@ export default function ContactPage() {
               {SITE.addressConfirmed && (
                 <address className="flex items-start gap-4 rounded-3xl bg-cream-100 p-6 not-italic">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
-                    <MapPin className="h-5 w-5" aria-hidden="true" />
+                    <MapPin className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} aria-hidden="true" />
                   </span>
                   <span>
                     <span className="block font-bold text-navy-900">
@@ -68,7 +68,7 @@ export default function ContactPage() {
             {SITE.emailConfirmed && (
               <div className="mt-10 flex flex-col items-center gap-3 rounded-3xl border-2 border-dashed border-orange-300/60 bg-orange-50 p-8 text-center">
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
-                  <Users className="h-5 w-5" aria-hidden="true" />
+                  <Users className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} aria-hidden="true" />
                 </span>
                 <p className="font-bold text-navy-900">
                   Envie de devenir bénévole&nbsp;?
