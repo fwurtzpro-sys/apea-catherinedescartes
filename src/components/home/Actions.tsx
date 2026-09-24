@@ -16,7 +16,7 @@ const ACTIONS: Action[] = [
 
 export function Actions() {
   return (
-    <section className="relative mx-auto mt-20 max-w-7xl px-4 sm:mt-28 sm:px-6 lg:px-8">
+    <section className="relative mx-auto mt-20 mb-20 max-w-7xl px-4 sm:mt-28 sm:mb-28 sm:px-6 lg:px-8">
       <Burst className="absolute -left-2 top-2 hidden h-8 w-8 text-orange-400 sm:block" />
       <Burst className="absolute -right-2 top-2 hidden h-8 w-8 text-orange-400 sm:block" />
 
