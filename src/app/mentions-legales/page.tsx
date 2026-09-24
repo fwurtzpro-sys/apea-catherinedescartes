@@ -84,9 +84,7 @@ const SECTIONS: { title: string; body: ReactNode }[] = [
   },
   {
     title: "Contact",
-    body: SITE.emailConfirmed
-      ? `Pour toute question relative à ce site : ${SITE.email}.`
-      : "Pour toute question relative à ce site : à compléter (voir la page Contact).",
+    body: `Pour toute question relative à ce site : ${SITE.email}.`,
   },
 ];
 
