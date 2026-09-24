@@ -2,12 +2,16 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { HeartDoodle } from "@/components/ui/Decorations";
+import { Reveal } from "@/components/ui/Reveal";
 
 export function About() {
   return (
     <section className="mx-auto mt-16 max-w-7xl px-4 sm:mt-20 sm:px-6 lg:px-8">
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem]">
+        <Reveal
+          direction="left"
+          className="relative aspect-[4/3] w-full overflow-hidden rounded-[2.5rem]"
+        >
           <Image
             src="/apea-ecole-catherine-descartes.png"
             alt="École Catherine Descartes — Groupe Scolaire Catherine Descartes"
@@ -23,9 +27,9 @@ export function About() {
             <br />
             ensemble&nbsp;!
           </p>
-        </div>
+        </Reveal>
 
-        <div className="relative">
+        <Reveal direction="right" delay={120} className="relative">
           <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400" />
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             À propos
@@ -48,7 +52,7 @@ export function About() {
           >
             En savoir plus sur l&rsquo;association
           </Button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

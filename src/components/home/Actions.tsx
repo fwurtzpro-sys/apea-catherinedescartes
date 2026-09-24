@@ -1,6 +1,7 @@
 import { Coins, GraduationCap, PartyPopper, Users } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Burst } from "@/components/ui/Decorations";
+import { Reveal } from "@/components/ui/Reveal";
 
 type Action = {
   icon: LucideIcon;
@@ -30,9 +31,10 @@ export function Actions() {
       </div>
 
       <div className="mt-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-navy-900/10">
-        {ACTIONS.map(({ icon: Icon, label }) => (
-          <div
+        {ACTIONS.map(({ icon: Icon, label }, index) => (
+          <Reveal
             key={label}
+            delay={index * 70}
             className="flex flex-col items-center gap-4 text-center lg:px-6"
           >
             <span className="flex h-16 w-16 items-center justify-center rounded-full bg-orange-100 text-orange-500">
@@ -46,7 +48,7 @@ export function Actions() {
             <p className="max-w-[10rem] text-sm font-semibold text-navy-900">
               {label}
             </p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

@@ -104,7 +104,7 @@ export function Header() {
                     />
                   </button>
                   {isOpen && (
-                    <div className="absolute left-0 top-full w-56 rounded-2xl border border-navy-900/10 bg-white p-2 shadow-lg shadow-navy-900/10">
+                    <div className="menu-pop-in absolute left-0 top-full w-56 rounded-2xl border border-navy-900/10 bg-white p-2 shadow-lg shadow-navy-900/10">
                       {link.children.map((child) => (
                         <Link
                           key={child.href}
@@ -164,7 +164,7 @@ export function Header() {
       {mobileOpen && (
         <div
           id="mobile-nav"
-          className="fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white xl:hidden"
+          className="menu-pop-in fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white xl:hidden"
           style={{ top: barHeight }}
         >
           <nav

@@ -14,7 +14,7 @@ type ButtonProps = {
 
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-orange-500 text-white shadow-sm shadow-orange-500/30 hover:bg-orange-600 active:bg-orange-700",
+    "bg-orange-500 text-white shadow-sm shadow-orange-500/30 hover:bg-orange-600 hover:shadow-md hover:shadow-orange-500/40 active:bg-orange-700",
   outline:
     "border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white",
   ghost: "text-navy-900 hover:bg-navy-900/5",
@@ -36,7 +36,7 @@ export function Button({
   onClick,
   type = "button",
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors duration-200 ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`;
 
   if (href) {
     return (

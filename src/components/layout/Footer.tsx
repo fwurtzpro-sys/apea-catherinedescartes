@@ -9,6 +9,7 @@ import {
   WaveDivider,
 } from "@/components/ui/Decorations";
 import { NAV_LINKS, SITE } from "@/lib/site-config";
+import { Reveal } from "@/components/ui/Reveal";
 
 const currentYear = new Date().getFullYear();
 
@@ -24,7 +25,7 @@ export function Footer() {
         <HeartDoodle className="absolute right-6 top-10 hidden h-7 w-7 text-orange-400/70 sm:block" />
 
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 [&>div]:min-w-0">
-          <div>
+          <Reveal delay={0}>
             <Logo variant="light" />
             <p className="font-script mt-4 text-2xl text-orange-400">
               Ensemble
@@ -32,9 +33,9 @@ export function Footer() {
               pour leurs sourires !
             </p>
             <Squiggle className="mt-1 h-3 w-28 text-orange-400" />
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={60}>
             <h3 className="text-sm font-bold uppercase tracking-wide text-white">
               Navigation
             </h3>
@@ -50,9 +51,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={120}>
             <h3 className="text-sm font-bold uppercase tracking-wide text-white">
               Nous contacter
             </h3>
@@ -94,9 +95,9 @@ export function Footer() {
                 </Link>
               </div>
             )}
-          </div>
+          </Reveal>
 
-          <div>
+          <Reveal delay={180}>
             <h3 className="text-sm font-bold uppercase tracking-wide text-white">
               Liens utiles
             </h3>
@@ -141,12 +142,15 @@ export function Footer() {
                 </a>
               </div>
             )}
-          </div>
+          </Reveal>
         </div>
 
-        <div className="mt-12 border-t border-cream-50/10 pt-6 text-right text-xs text-cream-50/50">
+        <Reveal
+          delay={220}
+          className="mt-12 border-t border-cream-50/10 pt-6 text-right text-xs text-cream-50/50"
+        >
           © {currentYear} {SITE.name} – {SITE.city}. Tous droits réservés.
-        </div>
+        </Reveal>
       </div>
     </footer>
   );
