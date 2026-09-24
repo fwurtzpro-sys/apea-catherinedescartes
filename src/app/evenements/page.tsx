@@ -6,6 +6,7 @@ import { EventCard } from "@/components/ui/EventCard";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 import { JoinCta } from "@/components/ui/JoinCta";
+import { Reveal } from "@/components/ui/Reveal";
 import { UPCOMING_EVENTS } from "@/lib/events-data";
 
 export const metadata: Metadata = {
@@ -27,16 +28,19 @@ export default function EvenementsPage() {
         <h2 className="sr-only">Événement à venir</h2>
         {UPCOMING_EVENTS.length > 0 ? (
           <div className="flex flex-col gap-8">
-            {UPCOMING_EVENTS.map((event) =>
+            {UPCOMING_EVENTS.map((event, index) =>
               event.slug === "troc-et-puces" ? (
-                <EventCard
-                  key={event.slug}
-                  event={event}
-                  ctaLabel="En savoir plus"
-                  ctaHref="/evenements/troc-et-puces"
-                />
+                <Reveal key={event.slug} delay={index * 80}>
+                  <EventCard
+                    event={event}
+                    ctaLabel="En savoir plus"
+                    ctaHref="/evenements/troc-et-puces"
+                  />
+                </Reveal>
               ) : (
-                <EventCard key={event.slug} event={event} />
+                <Reveal key={event.slug} delay={index * 80}>
+                  <EventCard event={event} />
+                </Reveal>
               )
             )}
           </div>
@@ -51,7 +55,7 @@ export default function EvenementsPage() {
 
       {/* Inscriptions */}
       <Container className="pb-16 sm:pb-20">
-        <div className="flex flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-white p-8 text-center sm:p-12">
+        <Reveal className="flex flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-white p-8 text-center sm:p-12">
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             Inscriptions
           </p>
@@ -68,7 +72,7 @@ export default function EvenementsPage() {
           >
             Accéder aux inscriptions
           </Button>
-        </div>
+        </Reveal>
       </Container>
 
       <JoinCta

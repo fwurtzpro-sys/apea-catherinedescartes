@@ -5,6 +5,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { JoinCta } from "@/components/ui/JoinCta";
 import { HeartDoodle } from "@/components/ui/Decorations";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous ?",
@@ -24,7 +25,7 @@ export default function QuiSommesNousPage() {
       {/* Présentation */}
       <Container className="py-16 sm:py-20">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
-          <div className="relative order-2 lg:order-1">
+          <Reveal direction="right" className="relative order-2 lg:order-1">
             <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400" />
             <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
               Présentation
@@ -39,8 +40,12 @@ export default function QuiSommesNousPage() {
               association dynamique, régie par la loi 1901, composée de
               parents bénévoles.
             </p>
-          </div>
-          <div className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] lg:order-2">
+          </Reveal>
+          <Reveal
+            direction="left"
+            delay={100}
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-[2.5rem] lg:order-2"
+          >
             <Image
               src="/apea-ecole-catherine-descartes.png"
               alt="École Catherine Descartes — Groupe Scolaire Catherine Descartes"
@@ -48,13 +53,13 @@ export default function QuiSommesNousPage() {
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
-          </div>
+          </Reveal>
         </div>
       </Container>
 
       {/* Mission */}
       <Container className="pb-16 sm:pb-20">
-        <div className="rounded-[2.5rem] bg-cream-100 p-8 sm:p-12">
+        <Reveal className="rounded-[2.5rem] bg-cream-100 p-8 sm:p-12">
           <div className="mx-auto max-w-2xl text-center">
             <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
               <Heart className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
@@ -70,12 +75,12 @@ export default function QuiSommesNousPage() {
               organisés par l&rsquo;école.
             </p>
           </div>
-        </div>
+        </Reveal>
       </Container>
 
       {/* Équipe — aucune donnée inventée, structure prête pour les vraies fiches */}
       <Container className="pb-16 sm:pb-20">
-        <div className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-cream-100/60 px-6 py-14 text-center">
+        <Reveal className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-cream-100/60 px-6 py-14 text-center">
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
             <Users2 className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
           </span>
@@ -89,7 +94,7 @@ export default function QuiSommesNousPage() {
             Photo, prénom et fonction de chaque membre seront ajoutés ici
             dès que l&rsquo;association nous les aura transmis.
           </p>
-        </div>
+        </Reveal>
       </Container>
 
       <JoinCta />

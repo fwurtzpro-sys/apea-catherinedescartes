@@ -2,6 +2,7 @@ import { Users } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { HeartDoodle } from "@/components/ui/Decorations";
+import { Reveal } from "@/components/ui/Reveal";
 
 type JoinCtaProps = {
   title?: string;
@@ -15,7 +16,7 @@ export function JoinCta({
 }: JoinCtaProps) {
   return (
     <Container className="my-16 sm:my-24">
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-navy-900 px-6 py-12 text-center sm:px-12 sm:py-16">
+      <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-navy-900 px-6 py-12 text-center sm:px-12 sm:py-16">
         <HeartDoodle className="absolute right-6 top-6 h-7 w-7 text-orange-400/70 sm:right-10 sm:top-10" />
         <h2 className="mx-auto max-w-xl text-2xl font-extrabold text-white sm:text-3xl">
           {title}
@@ -29,7 +30,7 @@ export function JoinCta({
         >
           Nous rejoindre
         </Button>
-      </div>
+      </Reveal>
     </Container>
   );
 }
