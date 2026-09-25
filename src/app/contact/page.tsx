@@ -24,7 +24,7 @@ export default function ContactPage() {
       <Container className="py-16 sm:py-20">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
           {SITE.emailConfirmed && (
-            <Reveal delay={0}>
+            <Reveal delay={0} strong>
               <a
                 href={`mailto:${SITE.email}`}
                 className="flex items-start gap-4 rounded-3xl bg-cream-100 p-6 transition-shadow hover:shadow-lg hover:shadow-orange-500/10"
@@ -45,7 +45,7 @@ export default function ContactPage() {
           )}
 
           {SITE.addressConfirmed && (
-            <Reveal delay={70}>
+            <Reveal delay={90} strong>
               <address className="flex items-start gap-4 rounded-3xl bg-cream-100 p-6 not-italic">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
                   <MapPin className="h-5 w-5" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} aria-hidden="true" />
@@ -67,7 +67,8 @@ export default function ContactPage() {
 
         {SITE.emailConfirmed && (
           <Reveal
-            delay={140}
+            delay={180}
+            strong
             className="mt-10 flex flex-col items-center gap-3 rounded-3xl border-2 border-dashed border-orange-300/60 bg-orange-50 p-8 text-center"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">

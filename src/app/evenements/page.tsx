@@ -30,7 +30,7 @@ export default function EvenementsPage() {
           <div className="flex flex-col gap-8">
             {UPCOMING_EVENTS.map((event, index) =>
               event.slug === "troc-et-puces" ? (
-                <Reveal key={event.slug} delay={index * 80}>
+                <Reveal key={event.slug} delay={index * 110} strong>
                   <EventCard
                     event={event}
                     ctaLabel="En savoir plus"
@@ -38,7 +38,7 @@ export default function EvenementsPage() {
                   />
                 </Reveal>
               ) : (
-                <Reveal key={event.slug} delay={index * 80}>
+                <Reveal key={event.slug} delay={index * 110} strong>
                   <EventCard event={event} />
                 </Reveal>
               )
@@ -55,7 +55,10 @@ export default function EvenementsPage() {
 
       {/* Inscriptions */}
       <Container className="pb-16 sm:pb-20">
-        <Reveal className="flex flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-white p-8 text-center sm:p-12">
+        <Reveal
+          strong
+          className="flex flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-white p-8 text-center sm:p-12"
+        >
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             Inscriptions
           </p>

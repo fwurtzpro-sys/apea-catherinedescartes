@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
 import { SITE } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -92,20 +91,22 @@ const SECTIONS: { title: string; body: ReactNode }[] = [
 export default function MentionsLegalesPage() {
   return (
     <>
-      <PageHero eyebrow="Informations légales" title="Mentions légales" />
+      <PageHero
+        eyebrow="Informations légales"
+        title="Mentions légales"
+        animated={false}
+      />
       <Container className="py-16 sm:py-20">
         <div className="mx-auto flex max-w-2xl flex-col gap-8">
-          {SECTIONS.map((section, index) => (
-            <Reveal key={section.title} delay={index * 50}>
-              <section>
-                <h2 className="text-lg font-bold text-navy-900">
-                  {section.title}
-                </h2>
-                <p className="mt-2 leading-relaxed text-navy-900/70">
-                  {section.body}
-                </p>
-              </section>
-            </Reveal>
+          {SECTIONS.map((section) => (
+            <section key={section.title}>
+              <h2 className="text-lg font-bold text-navy-900">
+                {section.title}
+              </h2>
+              <p className="mt-2 leading-relaxed text-navy-900/70">
+                {section.body}
+              </p>
+            </section>
           ))}
         </div>
       </Container>

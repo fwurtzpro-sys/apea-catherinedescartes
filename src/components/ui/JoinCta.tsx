@@ -16,7 +16,10 @@ export function JoinCta({
 }: JoinCtaProps) {
   return (
     <Container className="my-16 sm:my-24">
-      <Reveal className="relative overflow-hidden rounded-[2.5rem] bg-navy-900 px-6 py-12 text-center sm:px-12 sm:py-16">
+      <Reveal
+        strong
+        className="relative overflow-hidden rounded-[2.5rem] bg-navy-900 px-6 py-12 text-center sm:px-12 sm:py-16"
+      >
         <HeartDoodle className="absolute right-6 top-6 h-7 w-7 text-orange-400/70 sm:right-10 sm:top-10" />
         <h2 className="mx-auto max-w-xl text-2xl font-extrabold text-white sm:text-3xl">
           {title}

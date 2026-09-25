@@ -46,6 +46,7 @@ export default function TrocEtPucesPage() {
         <div className="grid grid-cols-1 overflow-hidden rounded-[2.5rem] bg-cream-100 lg:grid-cols-2">
           <Reveal
             direction="left"
+            strong
             className="relative aspect-[16/10] w-full bg-cream-200 lg:aspect-auto"
           >
             <Image
@@ -59,7 +60,8 @@ export default function TrocEtPucesPage() {
 
           <Reveal
             direction="right"
-            delay={100}
+            delay={120}
+            strong
             className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12"
           >
             <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
@@ -91,7 +93,7 @@ export default function TrocEtPucesPage() {
 
       {/* Informations visiteurs */}
       <Container className="pb-16 sm:pb-20">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal strong className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             Visiteurs
           </p>
@@ -103,6 +105,7 @@ export default function TrocEtPucesPage() {
         <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
           <Reveal
             delay={0}
+            strong
             className="flex flex-col items-center gap-3 rounded-3xl bg-cream-100 p-6 text-center"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
@@ -111,7 +114,8 @@ export default function TrocEtPucesPage() {
             <p className="font-bold text-navy-900">Entrée&nbsp;: 1,50&nbsp;€</p>
           </Reveal>
           <Reveal
-            delay={70}
+            delay={90}
+            strong
             className="flex flex-col items-center gap-3 rounded-3xl bg-cream-100 p-6 text-center"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
@@ -122,7 +126,8 @@ export default function TrocEtPucesPage() {
             </p>
           </Reveal>
           <Reveal
-            delay={140}
+            delay={180}
+            strong
             className="flex flex-col items-center gap-3 rounded-3xl bg-cream-100 p-6 text-center"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
@@ -137,7 +142,7 @@ export default function TrocEtPucesPage() {
 
       {/* Informations exposants */}
       <Container className="pb-16 sm:pb-20">
-        <Reveal className="mx-auto max-w-2xl text-center">
+        <Reveal strong className="mx-auto max-w-2xl text-center">
           <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
             Exposants
           </p>
@@ -149,6 +154,7 @@ export default function TrocEtPucesPage() {
         <div className="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2">
           <Reveal
             delay={0}
+            strong
             className="flex flex-col items-center gap-3 rounded-3xl bg-cream-100 p-7 text-center"
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
@@ -158,7 +164,8 @@ export default function TrocEtPucesPage() {
             <p className="text-navy-900/70">4&nbsp;€ / mètre</p>
           </Reveal>
           <Reveal
-            delay={70}
+            delay={90}
+            strong
             className="flex flex-col items-center gap-3 rounded-3xl bg-cream-100 p-7 text-center"
           >
             <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
@@ -172,7 +179,10 @@ export default function TrocEtPucesPage() {
 
       {/* Réservation */}
       <Container className="pb-16 sm:pb-20">
-        <Reveal className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-[2.5rem] bg-navy-900 p-8 text-center sm:p-12">
+        <Reveal
+          strong
+          className="mx-auto flex max-w-xl flex-col items-center gap-4 rounded-[2.5rem] bg-navy-900 p-8 text-center sm:p-12"
+        >
           <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-orange-400">
             <Mail className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
           </span>

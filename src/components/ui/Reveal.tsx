@@ -17,12 +17,25 @@ type RevealProps = {
    * mount instead of waiting for the element to scroll into view.
    */
   immediate?: boolean;
+  /**
+   * Slightly larger displacement + duration, for pages that want a more
+   * perceptible entrance. Off by default, so existing callers (the homepage)
+   * are unaffected.
+   */
+  strong?: boolean;
 };
 
 const HIDDEN_OFFSET: Record<Direction, string> = {
   up: "translate-y-5",
   left: "-translate-x-5",
   right: "translate-x-5",
+  none: "",
+};
+
+const HIDDEN_OFFSET_STRONG: Record<Direction, string> = {
+  up: "translate-y-7",
+  left: "-translate-x-7",
+  right: "translate-x-7",
   none: "",
 };
 
@@ -43,6 +56,7 @@ export function Reveal({
   direction = "up",
   scale = false,
   immediate = false,
+  strong = false,
 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [hidden, setHidden] = useState(false);
@@ -85,12 +99,15 @@ export function Reveal({
     return () => observer.disconnect();
   }, [immediate]);
 
+  const offsetMap = strong ? HIDDEN_OFFSET_STRONG : HIDDEN_OFFSET;
+  const duration = strong ? "duration-[750ms]" : "duration-700";
+
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out ${
+      className={`${className} transition-all ${duration} ease-out ${
         hidden
-          ? `opacity-0 ${HIDDEN_OFFSET[direction]} ${scale ? "scale-[0.98]" : ""}`
+          ? `opacity-0 ${offsetMap[direction]} ${scale ? "scale-[0.98]" : ""}`
           : "opacity-100 translate-x-0 translate-y-0 scale-100"
       }`}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
