@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Heart, Users2 } from "lucide-react";
+import { Heart } from "lucide-react";
 import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { JoinCta } from "@/components/ui/JoinCta";
 import { HeartDoodle } from "@/components/ui/Decorations";
 import { Reveal } from "@/components/ui/Reveal";
+import { Board } from "@/components/qui-sommes-nous/Board";
 
 export const metadata: Metadata = {
   title: "Qui sommes-nous ?",
@@ -83,27 +84,8 @@ export default function QuiSommesNousPage() {
         </Reveal>
       </Container>
 
-      {/* Équipe — aucune donnée inventée, structure prête pour les vraies fiches */}
-      <Container className="pb-16 sm:pb-20">
-        <Reveal
-          strong
-          className="mx-auto flex max-w-2xl flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-cream-100/60 px-6 py-14 text-center"
-        >
-          <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
-            <Users2 className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
-          </span>
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
-            L&rsquo;équipe
-          </p>
-          <p className="text-lg font-bold text-navy-900">
-            La présentation des membres du bureau arrivera prochainement
-          </p>
-          <p className="max-w-md text-navy-900/70">
-            Photo, prénom et fonction de chaque membre seront ajoutés ici
-            dès que l&rsquo;association nous les aura transmis.
-          </p>
-        </Reveal>
-      </Container>
+      {/* Équipe / bureau */}
+      <Board />
 
       <JoinCta />
     </>
