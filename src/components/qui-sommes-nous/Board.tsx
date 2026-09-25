@@ -90,75 +90,147 @@ function BoardDoodles({ gridRef }: { gridRef: RefObject<HTMLDivElement | null> }
   // pointing along +x before rotation. Placed at (x, y) and rotated to
   // match the tangent of the curve it caps, so it reads as a natural
   // continuation of the stroke rather than a separate geometric shape.
-  const arrowTip = (x: number, y: number, angle: number) => (
+  const arrowTip = (x: number, y: number, angle: number, strong = false) => (
     <g transform={`translate(${x} ${y}) rotate(${angle})`}>
       <g className={tipClass}>
-        <line x1="-7" y1="-4" x2="0" y2="0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <line x1="-7" y1="4" x2="0" y2="0" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <line x1={strong ? "-9" : "-7"} y1={strong ? "-5" : "-4"} x2="0" y2="0" stroke="currentColor" strokeWidth={strong ? "2.5" : "2"} strokeLinecap="round" />
+        <line x1={strong ? "-9" : "-7"} y1={strong ? "5" : "4"} x2="0" y2="0" stroke="currentColor" strokeWidth={strong ? "2.5" : "2"} strokeLinecap="round" />
       </g>
     </g>
   );
 
+  // Every decoration below is positioned in pixels relative to the grid
+  // wrapper (1 SVG unit = 1px, via a viewBox matching its own box size),
+  // measured against the actual rendered card positions so each curve sits
+  // in genuine whitespace — never over, nor behind, a card.
   return (
     <>
-      {/* Top-left flourish — kept compact and short of card 1 so the tip
-          (positioned relative to its own small box, not the card) is
-          always visible in the open gutter, never tucked behind a card. */}
+      {/* Desktop (3+3 grid): a curve in each inter-card gap, plus a taller
+          looping curve at the far left tying the two left-column members
+          together, and a small flourish balancing the bottom-right. */}
+
+      {/* Marine → Albane */}
       <svg
-        viewBox="0 0 70 40"
+        viewBox="0 0 96 140"
         fill="none"
         aria-hidden="true"
-        className="pointer-events-none absolute -left-5 top-2 hidden h-9 w-12 text-orange-400/80 sm:-left-7 sm:block sm:h-9 sm:w-12 lg:-left-9 lg:top-1 lg:h-10 lg:w-16"
+        className="pointer-events-none absolute hidden lg:block"
+        style={{ left: 352, top: 20, width: 96, height: 140 }}
       >
         <path
-          d="M4 32 C 10 12, 20 26, 30 16"
+          d="M20 15 C 90 0, 90 60, 20 55 C 5 50, 20 100, 60 110"
           stroke="currentColor"
           strokeWidth="2.5"
           strokeLinecap="round"
           pathLength={1}
           strokeDasharray={1}
-          className={pathClass}
+          className={`${pathClass} text-orange-400/80`}
         />
-        {arrowTip(30, 16, -45)}
+        {arrowTip(60, 110, 14)}
       </svg>
 
-      {/* Bottom-right flourish (mirrored + flipped) — same path and tip,
-          the svg-level flip carries both consistently. */}
+      {/* Albane → Nathalie */}
       <svg
-        viewBox="0 0 70 40"
+        viewBox="0 0 96 140"
         fill="none"
         aria-hidden="true"
-        className="pointer-events-none absolute -right-5 bottom-2 hidden h-9 w-12 -scale-x-100 -scale-y-100 text-orange-400/80 sm:-right-7 sm:block sm:h-9 sm:w-12 lg:-right-9 lg:bottom-1 lg:h-10 lg:w-16"
+        className="pointer-events-none absolute hidden lg:block"
+        style={{ left: 768, top: 20, width: 96, height: 140 }}
       >
         <path
-          d="M4 32 C 10 12, 20 26, 30 16"
+          d="M76 15 C 6 0, 6 60, 76 55 C 91 50, 76 100, 36 110"
           stroke="currentColor"
           strokeWidth="2.5"
           strokeLinecap="round"
           pathLength={1}
           strokeDasharray={1}
-          className={pathClass}
+          className={`${pathClass} text-orange-400/80`}
         />
-        {arrowTip(30, 16, -45)}
+        {arrowTip(36, 110, 166)}
       </svg>
 
-      {/* Small top-right arrow — desktop only, keeps tablet less busy */}
+      {/* Myriam → Margaux — the emphasised connection: bolder stroke,
+          bigger loop, deeper orange. */}
       <svg
-        viewBox="0 0 56 40"
+        viewBox="0 0 96 140"
         fill="none"
         aria-hidden="true"
-        className="pointer-events-none absolute -right-6 top-4 hidden h-10 w-14 text-orange-300/80 lg:block"
+        className="pointer-events-none absolute hidden lg:block"
+        style={{ left: 352, top: 249, width: 96, height: 140 }}
       >
         <path
-          d="M8 34 C 6 16, 24 6, 40 14"
+          d="M20 15 C 94 -8, 94 66, 20 58 C 2 55, 20 106, 64 116"
           stroke="currentColor"
-          strokeWidth="2.2"
+          strokeWidth="3"
           strokeLinecap="round"
           pathLength={1}
           strokeDasharray={1}
-          className={pathClass}
+          className={`${pathClass} text-orange-500`}
         />
-        {arrowTip(40, 14, 27)}
+        {arrowTip(64, 116, 15, true)}
+      </svg>
+
+      {/* Margaux → Maud */}
+      <svg
+        viewBox="0 0 96 140"
+        fill="none"
+        aria-hidden="true"
+        className="pointer-events-none absolute hidden lg:block"
+        style={{ left: 768, top: 249, width: 96, height: 140 }}
+      >
+        <path
+          d="M76 15 C 4 0, 4 60, 76 55 C 94 50, 76 100, 34 110"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          pathLength={1}
+          strokeDasharray={1}
+          className={`${pathClass} text-orange-400/80`}
+        />
+        {arrowTip(34, 110, 166)}
+      </svg>
+
+      {/* Tablet (2+2+2 grid): the column gap is only 56px wide here, and
+          the reflow puts Myriam/Margaux on a diagonal rather than side by
+          side, so a literal per-pair mapping no longer applies. Two
+          modest curves — one in the top row's gap, one in the bottom
+          row's — keep the same decorative language without crowding the
+          tighter layout. */}
+      <svg
+        viewBox="0 0 56 140"
+        fill="none"
+        aria-hidden="true"
+        className="pointer-events-none absolute hidden sm:block lg:hidden"
+        style={{ left: 332, top: 20, width: 56, height: 140 }}
+      >
+        <path
+          d="M10 10 C 50 -5, 50 45, 10 40 C 0 38, 10 75, 35 82"
+          stroke="currentColor"
+          strokeWidth="2.3"
+          strokeLinecap="round"
+          pathLength={1}
+          strokeDasharray={1}
+          className={`${pathClass} text-orange-400/80`}
+        />
+        {arrowTip(35, 82, 20)}
+      </svg>
+      <svg
+        viewBox="0 0 56 140"
+        fill="none"
+        aria-hidden="true"
+        className="pointer-events-none absolute hidden sm:block lg:hidden"
+        style={{ left: 332, top: 482, width: 56, height: 140 }}
+      >
+        <path
+          d="M46 10 C 6 -5, 6 45, 46 40 C 56 38, 46 75, 21 82"
+          stroke="currentColor"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          pathLength={1}
+          strokeDasharray={1}
+          className={`${pathClass} text-orange-500`}
+        />
+        {arrowTip(21, 82, 160, true)}
       </svg>
     </>
   );

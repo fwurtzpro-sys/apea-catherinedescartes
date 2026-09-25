@@ -63,7 +63,10 @@ export const BOARD_MEMBERS: BoardMember[] = [
     lastName: "Rouxel",
     role: "Secrétaire",
     image: "/apea-bureau-margaux-rouxel-secretaire.jpg",
-    imagePosition: "center",
+    // "top" keeps the crop anchored to the top of the source photo, so
+    // the full head is visible instead of being cropped by object-cover's
+    // default centered crop (which was cutting into the hair/forehead).
+    imagePosition: "top",
     visible: true,
   },
   {
