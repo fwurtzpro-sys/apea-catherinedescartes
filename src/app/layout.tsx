@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Caveat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { SchoolCalendarBubble } from "@/components/ui/SchoolCalendarBubble";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col bg-white text-navy-900">
         <Header />
         <main className="flex-1 overflow-x-clip">{children}</main>
+        <SchoolCalendarBubble />
         <Footer />
       </body>
     </html>
