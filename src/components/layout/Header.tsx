@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Users, X } from "lucide-react";
+import { ChevronDown, Lightbulb, Menu, X } from "lucide-react";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { NAV_LINKS } from "@/lib/site-config";
@@ -139,12 +139,12 @@ export function Header() {
 
         <div className="hidden xl:block">
           <Button
-            href="/contact"
+            href="/boite-a-idees"
             size="sm"
-            icon={<Users className="h-3.5 w-3.5 shrink-0" />}
+            icon={<Lightbulb className="h-3.5 w-3.5 shrink-0" />}
             className={`whitespace-nowrap ${FOCUS_RING}`}
           >
-            Nous rejoindre
+            Boîte à idées
           </Button>
         </div>
 
@@ -198,12 +198,12 @@ export function Header() {
             ))}
           </nav>
           <Button
-            href="/contact"
-            icon={<Users className="h-4 w-4" />}
+            href="/boite-a-idees"
+            icon={<Lightbulb className="h-4 w-4" />}
             className="mx-4 mt-4 mb-6 w-[calc(100%-2rem)]"
             onClick={() => setMobileOpen(false)}
           >
-            Nous rejoindre
+            Boîte à idées
           </Button>
         </div>
       )}
