@@ -95,3 +95,26 @@ body {
     animation: none;
   }
 }
+
+/* Subtle floating loop for the idea box page's decorative illustration. */
+@keyframes idea-float {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, -8px);
+  }
+}
+
+/* Short entrance for the idea box form's contact fields appearing. */
+@keyframes idea-fields-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
