@@ -5,9 +5,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
   CALENDAR_END_MONTH,
   CALENDAR_START_MONTH,
+  PUBLIC_HOLIDAYS,
   SCHOOL_PERIODS,
 } from "@/lib/school-calendar-data";
-import { isDateInAnyBreak } from "@/lib/school-calendar-logic";
+import {
+  findPublicHoliday,
+  formatDateDayMonth,
+  isDateInAnyBreak,
+} from "@/lib/school-calendar-logic";
 import { useTodayISO } from "@/lib/use-today-iso";
 
 const WEEKDAY_LABELS = ["L", "M", "M", "J", "V", "S", "D"];
@@ -76,6 +81,10 @@ export function MonthlyCalendar() {
 
   const { year, month } = indexToYM(monthIndex);
   const cells = buildMonthCells(year, month);
+  const monthPrefix = `${year}-${pad(month)}`;
+  const monthHolidays = PUBLIC_HOLIDAYS.filter((h) =>
+    h.date.startsWith(monthPrefix)
+  );
 
   function goTo(delta: number) {
     hasUserNavigated.current = true;
@@ -128,10 +137,11 @@ export function MonthlyCalendar() {
             if (!cell) return <div key={i} />;
             const isToday = today === cell.iso;
             const isBreak = isDateInAnyBreak(cell.iso, SCHOOL_PERIODS);
+            const holiday = findPublicHoliday(cell.iso, PUBLIC_HOLIDAYS);
             return (
               <div
                 key={i}
-                className={`flex aspect-square items-center justify-center rounded-lg text-sm transition-colors duration-150 ${
+                className={`relative flex aspect-square items-center justify-center rounded-lg text-sm transition-colors duration-150 ${
                   isBreak
                     ? "bg-orange-50 text-navy-900/70 hover:bg-orange-100"
                     : "text-navy-900 hover:bg-cream-100"
@@ -142,11 +152,37 @@ export function MonthlyCalendar() {
                 }`}
               >
                 {cell.day}
+                {holiday && (
+                  <>
+                    {/* Color is never the only signal: the name is real
+                        text for screen readers, and repeated visibly in
+                        the list below the grid for sighted users. */}
+                    <span className="sr-only"> — jour férié : {holiday.name}</span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute bottom-1 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-orange-500"
+                    />
+                  </>
+                )}
               </div>
             );
           })}
         </div>
       </div>
+
+      {monthHolidays.length > 0 && (
+        <div className="mt-4 flex flex-col gap-1 text-sm text-navy-900/70">
+          {monthHolidays.map((holiday) => (
+            <p key={holiday.date} className="flex items-center gap-2">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500"
+              />
+              {formatDateDayMonth(holiday.date)} — {holiday.name}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-navy-900/5 pt-5 text-xs text-navy-900/60">
         <span className="flex items-center gap-1.5">
@@ -160,6 +196,10 @@ export function MonthlyCalendar() {
         <span className="flex items-center gap-1.5">
           <span className="h-3 w-3 rounded ring-2 ring-navy-900" aria-hidden="true" />
           Aujourd&rsquo;hui
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-orange-500" aria-hidden="true" />
+          Jour férié
         </span>
       </div>
     </div>

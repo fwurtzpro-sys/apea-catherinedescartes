@@ -1,4 +1,4 @@
-import type { SchoolPeriod } from "@/lib/school-calendar-data";
+import type { PublicHoliday, SchoolPeriod } from "@/lib/school-calendar-data";
 
 /**
  * Pure date/period logic for the school calendar page, kept independent
@@ -141,4 +141,23 @@ export function isDateInAnyBreak(iso: string, periods: SchoolPeriod[]): boolean 
   return periods.some(
     (p) => p.kind === "break" && isWithin(iso, p.startDate, p.endDate)
   );
+}
+
+/** The public holiday landing on `iso`, if any — independent from the
+ * school breaks, so a date can be both a break day and a public holiday
+ * (e.g. Noël) without one hiding the other. */
+export function findPublicHoliday(
+  iso: string,
+  holidays: PublicHoliday[]
+): PublicHoliday | undefined {
+  return holidays.find((h) => h.date === iso);
+}
+
+/** "11 novembre" — day + month name, no year (used alongside a month/year
+ * heading that already gives the year). */
+export function formatDateDayMonth(iso: string): string {
+  return toNoonDate(iso).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "long",
+  });
 }
