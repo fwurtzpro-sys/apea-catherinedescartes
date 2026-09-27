@@ -13,7 +13,7 @@ export function Hero() {
           <Burst className="absolute -left-10 top-24 hidden h-8 w-8 text-orange-400 lg:block" />
 
           <Reveal delay={0} immediate>
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Association de parents d&rsquo;élèves
             </p>
           </Reveal>
@@ -39,7 +39,7 @@ export function Hero() {
               régie par la loi 1901, composée de parents bénévoles.
             </p>
 
-            <h2 className="mt-5 text-lg font-bold text-orange-500">
+            <h2 className="mt-5 text-lg font-bold text-orange-a11y">
               Notre mission&nbsp;?
             </h2>
             <p className="mt-1 max-w-lg text-base leading-relaxed text-navy-900/70">

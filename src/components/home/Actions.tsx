@@ -22,7 +22,7 @@ export function Actions() {
       <Burst className="absolute -right-2 top-2 hidden h-8 w-8 text-orange-400 sm:block" />
 
       <div className="text-center">
-        <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+        <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
           Nos actions
         </p>
         <h2 className="mx-auto mt-2 max-w-xl text-3xl font-extrabold text-navy-900 sm:text-4xl">

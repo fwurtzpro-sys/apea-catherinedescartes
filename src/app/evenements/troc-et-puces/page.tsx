@@ -64,7 +64,7 @@ export default function TrocEtPucesPage() {
             strong
             className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12"
           >
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Informations pratiques
             </p>
             <h2 className="text-3xl font-extrabold text-navy-900 sm:text-4xl">
@@ -94,7 +94,7 @@ export default function TrocEtPucesPage() {
       {/* Informations visiteurs */}
       <Container className="pb-16 sm:pb-20">
         <Reveal strong className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             Visiteurs
           </p>
           <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">
@@ -143,7 +143,7 @@ export default function TrocEtPucesPage() {
       {/* Informations exposants */}
       <Container className="pb-16 sm:pb-20">
         <Reveal strong className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             Exposants
           </p>
           <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">

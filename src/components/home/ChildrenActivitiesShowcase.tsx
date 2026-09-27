@@ -22,7 +22,7 @@ export function ChildrenActivitiesShowcase() {
         </Reveal>
 
         <Reveal direction="right" delay={120}>
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             À la maison
           </p>
           <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">

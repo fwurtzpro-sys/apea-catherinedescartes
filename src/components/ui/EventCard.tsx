@@ -44,7 +44,7 @@ export function EventCard({
       )}
 
       <div className="flex flex-col justify-center gap-4 p-8 sm:p-10 lg:p-12">
-        <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+        <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
           {eyebrow}
         </p>
         <h3 className="text-3xl font-extrabold text-navy-900 sm:text-4xl">

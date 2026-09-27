@@ -22,7 +22,7 @@ export default function BoiteAIdeesPage() {
 
       <Container className="py-16 sm:py-20">
         <Reveal strong className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             Vos idées comptent
           </p>
           <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">

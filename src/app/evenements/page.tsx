@@ -59,7 +59,7 @@ export default function EvenementsPage() {
           strong
           className="flex flex-col items-center gap-4 rounded-[2.5rem] border-2 border-dashed border-orange-200 bg-white p-8 text-center sm:p-12"
         >
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             Inscriptions
           </p>
           <h2 className="max-w-lg text-2xl font-extrabold text-navy-900 sm:text-3xl">

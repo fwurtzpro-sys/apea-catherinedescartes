@@ -24,7 +24,7 @@ export default function CalendrierScolairePage() {
 
       <Container className="pb-16 pt-8 sm:pb-20">
         <Reveal strong className="mx-auto flex max-w-2xl justify-center">
-          <span className="inline-flex items-center rounded-full border-2 border-orange-200 bg-orange-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-orange-600">
+          <span className="inline-flex items-center rounded-full border-2 border-orange-200 bg-orange-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-orange-a11y">
             {SCHOOL_ZONE_LABEL}
           </span>
         </Reveal>
@@ -35,7 +35,7 @@ export default function CalendrierScolairePage() {
 
         <div className="mx-auto mt-16 max-w-5xl">
           <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Vue d&rsquo;ensemble
             </p>
             <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">
@@ -49,7 +49,7 @@ export default function CalendrierScolairePage() {
 
         <div className="mx-auto mt-16 max-w-2xl">
           <Reveal className="text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Mois par mois
             </p>
             <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">

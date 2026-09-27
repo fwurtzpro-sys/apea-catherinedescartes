@@ -244,7 +244,7 @@ export function Board() {
   return (
     <Container className="pb-16 sm:pb-20">
       <Reveal strong className="mx-auto max-w-xl text-center">
-        <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+        <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
           L&rsquo;équipe
         </p>
         <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">
@@ -300,7 +300,7 @@ export function Board() {
                 <p className="text-sm font-bold uppercase tracking-wide text-navy-900">
                   {member.lastName}
                 </p>
-                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-orange-500">
+                <p className="mt-2 text-sm font-semibold uppercase tracking-wide text-orange-a11y">
                   {member.role}
                 </p>
               </div>

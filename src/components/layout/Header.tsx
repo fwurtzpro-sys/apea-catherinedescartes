@@ -18,6 +18,9 @@ export function Header() {
   const [barHeight, setBarHeight] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const barRef = useRef<HTMLDivElement>(null);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const wasMobileOpenRef = useRef(false);
 
   // Measure the header bar so the full-screen mobile overlay starts
   // exactly below it, whatever the logo/nav sizing at the current width.
@@ -63,6 +66,54 @@ export function Header() {
     };
   }, [mobileOpen]);
 
+  // Focus trap for the full-screen mobile menu: move focus inside on
+  // open, keep Tab/Shift+Tab cycling within it (never reaching the page
+  // content hidden behind the overlay), and return focus to the toggle
+  // button that opened it once it closes.
+  useEffect(() => {
+    if (mobileOpen) {
+      wasMobileOpenRef.current = true;
+      const container = mobileNavRef.current;
+      if (!container) return;
+
+      const getFocusable = () =>
+        Array.from(
+          container.querySelectorAll<HTMLElement>(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        );
+
+      getFocusable()[0]?.focus();
+
+      function handleKeyDown(event: KeyboardEvent) {
+        if (event.key !== "Tab") return;
+        const items = getFocusable();
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        const active = document.activeElement;
+
+        if (event.shiftKey) {
+          if (active === first || !container?.contains(active)) {
+            event.preventDefault();
+            last.focus();
+          }
+        } else if (active === last || !container?.contains(active)) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+
+      container.addEventListener("keydown", handleKeyDown);
+      return () => container.removeEventListener("keydown", handleKeyDown);
+    }
+
+    if (wasMobileOpenRef.current) {
+      wasMobileOpenRef.current = false;
+      menuButtonRef.current?.focus();
+    }
+  }, [mobileOpen]);
+
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-navy-900/5 bg-white/95 backdrop-blur">
@@ -90,7 +141,7 @@ export function Header() {
                     type="button"
                     className={`flex items-center gap-0.5 whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors ${FOCUS_RING} ${
                       isActive
-                        ? "text-orange-500"
+                        ? "text-orange-a11y"
                         : "text-navy-900 hover:text-orange-500"
                     }`}
                     aria-expanded={isOpen}
@@ -127,7 +178,7 @@ export function Header() {
                 href={link.href}
                 className={`whitespace-nowrap rounded-full px-2.5 py-2 text-sm font-semibold transition-colors ${FOCUS_RING} ${
                   isActive
-                    ? "text-orange-500"
+                    ? "text-orange-a11y"
                     : "text-navy-900 hover:text-orange-500"
                 }`}
               >
@@ -149,6 +200,7 @@ export function Header() {
         </div>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className={`rounded-full p-2 text-navy-900 xl:hidden ${FOCUS_RING}`}
           onClick={() => setMobileOpen((v) => !v)}
@@ -163,6 +215,7 @@ export function Header() {
 
       {mobileOpen && (
         <div
+          ref={mobileNavRef}
           id="mobile-nav"
           className="menu-pop-in fixed inset-x-0 bottom-0 z-40 overflow-y-auto bg-white xl:hidden"
           style={{ top: barHeight }}

@@ -31,7 +31,7 @@ export function About() {
 
         <Reveal direction="right" delay={120} className="relative">
           <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400" />
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             À propos
           </p>
           <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">

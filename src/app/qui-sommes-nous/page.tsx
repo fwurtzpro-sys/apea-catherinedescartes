@@ -32,7 +32,7 @@ export default function QuiSommesNousPage() {
             className="relative order-2 lg:order-1"
           >
             <HeartDoodle className="absolute -top-2 right-0 h-7 w-7 text-orange-400" />
-            <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Présentation
             </p>
             <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">
@@ -70,7 +70,7 @@ export default function QuiSommesNousPage() {
             <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 text-orange-500">
               <Heart className="h-6 w-6" strokeWidth={1.5} fill="currentColor" fillOpacity={0.35} />
             </span>
-            <p className="mt-4 text-sm font-bold uppercase tracking-widest text-orange-500">
+            <p className="mt-4 text-sm font-bold uppercase tracking-widest text-orange-a11y">
               Notre mission
             </p>
             <h2 className="mt-2 text-2xl font-extrabold text-navy-900 sm:text-3xl">

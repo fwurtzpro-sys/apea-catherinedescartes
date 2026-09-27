@@ -23,6 +23,12 @@
   --color-orange-500: #ea6d1b;
   --color-orange-600: #c9590f;
   --color-orange-700: #a3480c;
+
+  /* Same hue/saturation as orange-500, darkened just enough to reach
+     WCAG AA (4.5:1) as readable text or white-on-background text —
+     used only where that's actually required (see globals.css usage
+     notes in the audit report), never as a blanket replacement. */
+  --color-orange-a11y: #af4f10;
 }
 
 @theme inline {
@@ -47,6 +53,7 @@
   --color-orange-500: var(--color-orange-500);
   --color-orange-600: var(--color-orange-600);
   --color-orange-700: var(--color-orange-700);
+  --color-orange-a11y: var(--color-orange-a11y);
 
   --font-sans: var(--font-poppins);
   --font-script: var(--font-caveat);

@@ -17,7 +17,7 @@ export function PageHero({
   animated = true,
 }: PageHeroProps) {
   const eyebrowEl = (
-    <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+    <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
       {eyebrow}
     </p>
   );
