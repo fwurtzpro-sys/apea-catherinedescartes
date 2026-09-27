@@ -15,6 +15,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: "Inscriptions", href: "/evenements/inscriptions" },
     ],
   },
+  { label: "Le coin des enfants", href: "/activites-enfants" },
   { label: "Contact", href: "/contact" },
 ];
 
