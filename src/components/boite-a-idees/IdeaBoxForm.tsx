@@ -101,6 +101,7 @@ export function IdeaBoxForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting") return;
     setFormError(null);
 
     const errors = validateIdeaBoxForm(values);
@@ -430,6 +431,7 @@ export function IdeaBoxForm() {
         size="lg"
         icon={<Send className="h-4 w-4" />}
         className="mt-8 w-full sm:w-auto"
+        disabled={status === "submitting"}
       >
         {status === "submitting" ? "Envoi en cours…" : "Envoyer mon idée"}
       </Button>

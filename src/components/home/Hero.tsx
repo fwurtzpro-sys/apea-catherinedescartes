@@ -20,7 +20,7 @@ export function Hero() {
 
           <Reveal delay={80} immediate>
             <h1 className="mt-3">
-              <span className="block font-sans text-5xl font-extrabold uppercase leading-[1.05] tracking-tight text-navy-900 sm:text-6xl">
+              <span className="block font-sans text-4xl font-extrabold uppercase leading-[1.05] tracking-tight text-navy-900 min-[360px]:text-5xl sm:text-6xl">
                 Convivialité
               </span>
               <span className="font-script -mt-1 flex items-center gap-2 text-4xl font-normal text-navy-900 sm:text-5xl">

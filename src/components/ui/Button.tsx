@@ -10,6 +10,7 @@ type ButtonProps = {
   href?: string;
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 };
 
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
@@ -35,12 +36,19 @@ export function Button({
   href,
   onClick,
   type = "button",
+  disabled = false,
 }: ButtonProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:translate-y-0 disabled:active:scale-100 ${VARIANT_CLASSES[variant]} ${SIZE_CLASSES[size]} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={classes} onClick={onClick}>
+      <Link
+        href={href}
+        className={classes}
+        onClick={disabled ? (e) => e.preventDefault() : onClick}
+        aria-disabled={disabled || undefined}
+        tabIndex={disabled ? -1 : undefined}
+      >
         {children}
         {icon}
       </Link>
@@ -48,7 +56,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
       {children}
       {icon}
     </button>

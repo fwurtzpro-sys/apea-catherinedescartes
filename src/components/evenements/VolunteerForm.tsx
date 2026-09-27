@@ -90,6 +90,7 @@ export function VolunteerForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting") return;
     setFormError(null);
 
     const errors = validateVolunteerForm(values);
@@ -408,6 +409,7 @@ export function VolunteerForm() {
         size="lg"
         icon={<ArrowRight className="h-4 w-4" />}
         className="mt-8 w-full sm:w-auto"
+        disabled={status === "submitting"}
       >
         {status === "submitting" ? "Envoi en cours…" : "Proposer mon aide"}
       </Button>
