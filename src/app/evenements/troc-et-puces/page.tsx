@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Troc et Puces 2026 à Elven | APEA Catherine Descartes",
+  title: "Troc et Puces 2026 à Elven",
   description:
     "Retrouvez toutes les informations sur la 29ème édition du Troc et Puces d'Elven organisée le dimanche 15 novembre 2026 au Complexe sportif Roger Michel.",
 };
