@@ -80,7 +80,7 @@ export function ActivitiesExplorer() {
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((activity, index) => (
-              <Reveal key={activity.id} immediate delay={index * 50}>
+              <Reveal key={activity.id} delay={(index % 6) * 50}>
                 <ActivityCard activity={activity} />
               </Reveal>
             ))}
