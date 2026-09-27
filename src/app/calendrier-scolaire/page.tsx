@@ -5,7 +5,6 @@ import { Reveal } from "@/components/ui/Reveal";
 import { NextBreakCard } from "@/components/calendrier-scolaire/NextBreakCard";
 import { SchoolTimeline } from "@/components/calendrier-scolaire/SchoolTimeline";
 import { MonthlyCalendar } from "@/components/calendrier-scolaire/MonthlyCalendar";
-import { ChildrenActivitiesTeaser } from "@/components/calendrier-scolaire/ChildrenActivitiesTeaser";
 import { SCHOOL_YEAR_LABEL, SCHOOL_ZONE_LABEL } from "@/lib/school-calendar-data";
 
 export const metadata: Metadata = {
@@ -61,10 +60,6 @@ export default function CalendrierScolairePage() {
             <MonthlyCalendar />
           </Reveal>
         </div>
-
-        <Reveal className="mx-auto mt-10 max-w-2xl">
-          <ChildrenActivitiesTeaser />
-        </Reveal>
 
         <Reveal className="mx-auto mt-10 max-w-2xl text-center text-xs text-navy-900/40">
           <p>

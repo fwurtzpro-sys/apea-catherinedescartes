@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { CalendarDays } from "lucide-react";
 
 /**
@@ -16,6 +17,7 @@ import { CalendarDays } from "lucide-react";
  * instead of competing with it.
  */
 export function SchoolCalendarBubble() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [nearFooter, setNearFooter] = useState(false);
   const [pulse, setPulse] = useState(false);
@@ -46,6 +48,11 @@ export function SchoolCalendarBubble() {
     observer.observe(footer);
     return () => observer.disconnect();
   }, []);
+
+  // Not useful on the activities page itself: its filter chips sit right
+  // where this bubble floats, and there's nothing calendar-related to
+  // jump to from there anyway.
+  if (pathname?.startsWith("/activites-enfants")) return null;
 
   const visible = mounted && !nearFooter;
 
