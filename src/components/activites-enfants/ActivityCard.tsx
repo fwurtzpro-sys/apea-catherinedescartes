@@ -65,7 +65,7 @@ export function ActivityCard({ activity }: { activity: ChildActivity }) {
         <div className="mt-auto pt-2">
           {activity.available && activity.pdf ? (
             <a
-              href={activity.pdf}
+              href={`/activites-enfants/coloriage/${activity.id}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-500 px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-orange-500/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-orange-600 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
