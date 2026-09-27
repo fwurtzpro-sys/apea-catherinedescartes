@@ -3,6 +3,7 @@ import { Poppins, Caveat } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SchoolCalendarBubble } from "@/components/ui/SchoolCalendarBubble";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -35,18 +36,15 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   openGraph: {
-    type: "website",
-    locale: "fr_FR",
-    siteName: "APEA Catherine Descartes",
+    ...OG_DEFAULTS,
+    url: "/",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: [{ url: "/logo-apea.png", width: 342, height: 344 }],
   },
   twitter: {
-    card: "summary",
+    ...TWITTER_DEFAULTS,
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/logo-apea.png"],
   },
 };
 

@@ -7,11 +7,26 @@ import { JoinCta } from "@/components/ui/JoinCta";
 import { HeartDoodle } from "@/components/ui/Decorations";
 import { Reveal } from "@/components/ui/Reveal";
 import { Board } from "@/components/qui-sommes-nous/Board";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Qui sommes-nous ?";
+const DESCRIPTION =
+  "Présentation de l'APEA Catherine Descartes, l'association de parents d'élèves et amis de l'école élémentaire publique Catherine Descartes à Elven.";
 
 export const metadata: Metadata = {
-  title: "Qui sommes-nous ?",
-  description:
-    "Présentation de l'APEA Catherine Descartes, l'association de parents d'élèves et amis de l'école élémentaire publique Catherine Descartes à Elven.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/qui-sommes-nous",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function QuiSommesNousPage() {

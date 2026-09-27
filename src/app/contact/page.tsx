@@ -5,11 +5,26 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { SITE } from "@/lib/site-config";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Contact";
+const DESCRIPTION =
+  "Coordonnées de contact de l'APEA Catherine Descartes, l'association de parents d'élèves de l'école d'Elven.";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Coordonnées de contact de l'APEA Catherine Descartes, l'association de parents d'élèves de l'école d'Elven.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/contact",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function ContactPage() {

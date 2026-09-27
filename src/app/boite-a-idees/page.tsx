@@ -4,11 +4,26 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { IdeaBoxIllustration } from "@/components/boite-a-idees/IdeaBoxIllustration";
 import { IdeaBoxForm } from "@/components/boite-a-idees/IdeaBoxForm";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "La boîte à idées";
+const DESCRIPTION =
+  "Partagez une idée, une suggestion ou une envie pour faire vivre l'école et les projets de l'APEA Catherine Descartes.";
 
 export const metadata: Metadata = {
-  title: "La boîte à idées",
-  description:
-    "Partagez une idée, une suggestion ou une envie pour faire vivre l'école et les projets de l'APEA Catherine Descartes.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/boite-a-idees",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function BoiteAIdeesPage() {

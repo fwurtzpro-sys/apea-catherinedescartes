@@ -8,11 +8,26 @@ import { Button } from "@/components/ui/Button";
 import { JoinCta } from "@/components/ui/JoinCta";
 import { Reveal } from "@/components/ui/Reveal";
 import { UPCOMING_EVENTS } from "@/lib/events-data";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Événements";
+const DESCRIPTION =
+  "Découvrez les événements organisés par l'APEA Catherine Descartes à Elven et venez y participer ou proposer votre aide.";
 
 export const metadata: Metadata = {
-  title: "Événements",
-  description:
-    "Découvrez les événements organisés par l'APEA Catherine Descartes à Elven et venez y participer ou proposer votre aide.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/evenements",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function EvenementsPage() {

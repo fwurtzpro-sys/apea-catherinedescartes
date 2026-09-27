@@ -15,11 +15,26 @@ import { PageHero } from "@/components/ui/PageHero";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Troc et Puces 2026 à Elven";
+const DESCRIPTION =
+  "Retrouvez toutes les informations sur la 29ème édition du Troc et Puces d'Elven organisée le dimanche 15 novembre 2026 au Complexe sportif Roger Michel.";
 
 export const metadata: Metadata = {
-  title: "Troc et Puces 2026 à Elven",
-  description:
-    "Retrouvez toutes les informations sur la 29ème édition du Troc et Puces d'Elven organisée le dimanche 15 novembre 2026 au Complexe sportif Roger Michel.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/evenements/troc-et-puces",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 const RESERVATION_EMAIL = "apeaelven@gmail.com";

@@ -6,11 +6,26 @@ import { NextBreakCard } from "@/components/calendrier-scolaire/NextBreakCard";
 import { SchoolTimeline } from "@/components/calendrier-scolaire/SchoolTimeline";
 import { MonthlyCalendar } from "@/components/calendrier-scolaire/MonthlyCalendar";
 import { SCHOOL_YEAR_LABEL, SCHOOL_ZONE_LABEL } from "@/lib/school-calendar-data";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Calendrier scolaire";
+const DESCRIPTION =
+  "Les principales dates de l'année scolaire 2026-2027 (zone B, académie de Rennes) pour organiser le quotidien de votre famille.";
 
 export const metadata: Metadata = {
-  title: "Calendrier scolaire",
-  description:
-    "Les principales dates de l'année scolaire 2026-2027 (zone B, académie de Rennes) pour organiser le quotidien de votre famille.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/calendrier-scolaire",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function CalendrierScolairePage() {

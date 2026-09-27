@@ -6,11 +6,26 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Button } from "@/components/ui/Button";
 import { ActivitiesExplorer } from "@/components/activites-enfants/ActivitiesExplorer";
 import { ActivitiesDoodle } from "@/components/activites-enfants/ActivitiesDoodle";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Activités enfants à imprimer";
+const DESCRIPTION =
+  "Retrouvez des coloriages et dessins gratuits à imprimer pour les enfants de la TPS au CM2, proposés par l'APEA Catherine Descartes à Elven.";
 
 export const metadata: Metadata = {
-  title: "Activités enfants à imprimer",
-  description:
-    "Retrouvez des coloriages et dessins gratuits à imprimer pour les enfants de la TPS au CM2, proposés par l'APEA Catherine Descartes à Elven.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/activites-enfants",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function ActivitesEnfantsPage() {
