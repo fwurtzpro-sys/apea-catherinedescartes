@@ -11,7 +11,12 @@
  * without repeating them by hand on every page.
  */
 
-export const OG_IMAGE = { url: "/logo-apea.png", width: 342, height: 344 };
+export const OG_IMAGE = {
+  url: "/og-apea-catherine-descartes.png",
+  width: 1200,
+  height: 630,
+  alt: "APEA de l'école Catherine Descartes à Elven",
+};
 
 export const OG_DEFAULTS = {
   type: "website" as const,
@@ -21,6 +26,6 @@ export const OG_DEFAULTS = {
 };
 
 export const TWITTER_DEFAULTS = {
-  card: "summary" as const,
-  images: ["/logo-apea.png"],
+  card: "summary_large_image" as const,
+  images: [OG_IMAGE],
 };
