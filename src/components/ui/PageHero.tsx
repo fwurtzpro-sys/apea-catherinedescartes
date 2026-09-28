@@ -22,7 +22,7 @@ export function PageHero({
     </p>
   );
   const titleEl = (
-    <h1 className="mt-2 text-4xl font-extrabold text-navy-900 sm:text-5xl">
+    <h1 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-5xl">
       {title}
     </h1>
   );
@@ -33,7 +33,7 @@ export function PageHero({
   ) : null;
 
   return (
-    <section className="relative overflow-hidden bg-cream-100 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+    <section className="relative overflow-hidden bg-cream-100 px-4 py-10 sm:px-6 sm:py-20 lg:px-8">
       <Burst className="absolute left-6 top-6 h-8 w-8 text-orange-400/70 sm:left-12" />
       <div className="mx-auto max-w-3xl text-center">
         {animated ? (

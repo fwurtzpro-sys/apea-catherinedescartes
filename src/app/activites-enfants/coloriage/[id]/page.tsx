@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Download } from "lucide-react";
@@ -68,11 +69,26 @@ export default async function ColoriagePage({ params }: Props) {
         </div>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-hidden rounded-2xl ring-1 ring-navy-900/10">
+      <div className="relative min-h-0 flex-1 overflow-hidden rounded-2xl bg-cream-100 ring-1 ring-navy-900/10">
+        {/* Mobile Safari's built-in PDF-in-iframe viewer ignores the
+            iframe's box and renders at the PDF's native point size, so on
+            phones it shows a giant, cropped page instead of fitting it —
+            the pre-rendered preview image below avoids that entirely. */}
+        {activity.thumbnail && (
+          <Image
+            src={activity.thumbnail}
+            alt={`Aperçu du coloriage ${activity.title}`}
+            fill
+            sizes="100vw"
+            className="object-contain p-3 sm:hidden"
+          />
+        )}
         <iframe
           src={activity.pdf}
           title={activity.title}
-          className="h-full w-full"
+          className={
+            activity.thumbnail ? "hidden h-full w-full sm:block" : "h-full w-full"
+          }
         />
       </div>
     </Container>

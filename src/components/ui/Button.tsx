@@ -15,7 +15,7 @@ type ButtonProps = {
 
 const VARIANT_CLASSES: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-orange-a11y text-white shadow-sm shadow-orange-500/30 hover:bg-orange-700 hover:shadow-md hover:shadow-orange-500/40 active:bg-orange-700",
+    "bg-orange-brand text-navy-900 shadow-sm shadow-orange-500/30 hover:bg-orange-400 hover:shadow-md hover:shadow-orange-500/40 active:bg-orange-400",
   outline:
     "border-2 border-navy-900 text-navy-900 hover:bg-navy-900 hover:text-white",
   ghost: "text-navy-900 hover:bg-navy-900/5",

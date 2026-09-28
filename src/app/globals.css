@@ -29,6 +29,13 @@
      used only where that's actually required (see globals.css usage
      notes in the audit report), never as a blanket replacement. */
   --color-orange-a11y: #af4f10;
+
+  /* Exact orange from the official logo (public/logo-apea.png),
+     sampled pixel-for-pixel from its flat fill — the true brand
+     orange. Only 2.7:1 against white, so it's used for fills paired
+     with navy text (buttons, active chips), never as small text or
+     white-on-orange — orange-a11y above still covers those. */
+  --color-orange-brand: #e88326;
 }
 
 @theme inline {
@@ -54,6 +61,7 @@
   --color-orange-600: var(--color-orange-600);
   --color-orange-700: var(--color-orange-700);
   --color-orange-a11y: var(--color-orange-a11y);
+  --color-orange-brand: var(--color-orange-brand);
 
   --font-sans: var(--font-poppins);
   --font-script: var(--font-caveat);
