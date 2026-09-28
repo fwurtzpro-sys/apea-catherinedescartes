@@ -42,9 +42,7 @@ export const BOARD_MEMBERS: BoardMember[] = [
     firstName: "Nathalie",
     lastName: "Bigot",
     role: "Trésorière",
-    // Photo pas encore fournie par l'association : `image` reste absent,
-    // la carte affiche un cercle neutre "à venir". Dès réception, il
-    // suffira d'ajouter image: "/apea-bureau-nathalie-bigot-tresoriere.jpg".
+    image: "/nathalie-tresoriere.jpg.JPG",
     imagePosition: "center",
     visible: true,
   },
@@ -52,9 +50,7 @@ export const BOARD_MEMBERS: BoardMember[] = [
     firstName: "Myriam",
     lastName: "Gaule",
     role: "Vice-trésorière",
-    // Photo pas encore fournie par l'association : `image` reste absent,
-    // la carte affiche un cercle neutre "à venir". Dès réception, il
-    // suffira d'ajouter image: "/apea-bureau-myriam-gaule-vice-tresoriere.jpg".
+    image: "/myriam-vice-tresoriere.jpg.JPG",
     imagePosition: "center",
     visible: true,
   },

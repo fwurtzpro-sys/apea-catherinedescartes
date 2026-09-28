@@ -27,7 +27,6 @@ export function Logo({ className = "", variant = "dark" }: LogoProps) {
         width={56}
         height={56}
         className="h-11 w-11 shrink-0 sm:h-12 sm:w-12 xl:h-[3.25rem] xl:w-[3.25rem]"
-        priority
       />
       <span className="flex flex-col whitespace-nowrap leading-tight">
         <span
