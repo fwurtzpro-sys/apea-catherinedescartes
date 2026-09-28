@@ -12,7 +12,7 @@ import { ColoringSheetIllustration } from "@/components/home/ColoringSheetIllust
  */
 export function ChildrenActivitiesShowcase() {
   return (
-    <section className="mx-auto mt-16 max-w-7xl px-4 sm:mt-20 sm:px-6 lg:px-8">
+    <section className="mx-auto mt-16 max-w-7xl px-4 pb-20 sm:mt-20 sm:px-6 lg:px-8 lg:pb-0">
       <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <Reveal
           direction="left"
