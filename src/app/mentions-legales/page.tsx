@@ -75,6 +75,10 @@ const SECTIONS: { title: string; body: ReactNode }[] = [
     ),
   },
   {
+    title: "Conception et réalisation",
+    body: "Conception et réalisation du site : Floriane Wurtz.",
+  },
+  {
     title: "Propriété intellectuelle",
     body: "L'ensemble des contenus de ce site (textes, logo, visuels) est la propriété de l'APEA Catherine Descartes, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
   },

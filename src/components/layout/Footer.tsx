@@ -149,7 +149,12 @@ export function Footer() {
           delay={220}
           className="mt-12 border-t border-cream-50/10 pt-6 text-right text-xs text-cream-50/50"
         >
-          © {currentYear} {SITE.name} – {SITE.city}. Tous droits réservés.
+          <p>
+            © {currentYear} {SITE.name} – {SITE.city}. Tous droits réservés.
+          </p>
+          <p className="mt-1 text-[11px] text-cream-50/30">
+            Conception &amp; réalisation — Floriane Wurtz
+          </p>
         </Reveal>
       </div>
     </footer>

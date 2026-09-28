@@ -74,7 +74,10 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-orange-500);
+  /* orange-600, not orange-500: orange-500 only reaches 2.92:1 against
+     cream-100 (below the 3:1 minimum for a focus indicator); orange-600
+     clears 3:1 against white, cream-100 and navy-900 alike. */
+  outline: 2px solid var(--color-orange-600);
   outline-offset: 2px;
 }
 
