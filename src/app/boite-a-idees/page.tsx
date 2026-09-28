@@ -48,7 +48,7 @@ export default function BoiteAIdeesPage() {
             suggestion&nbsp;: toutes les idées peuvent être partagées avec
             l&rsquo;APEA.
           </p>
-          <p className="mt-2 text-sm text-navy-900/60">
+          <p className="mt-2 text-sm text-navy-900/70">
             Vous pouvez tout à fait rester anonyme.
           </p>
         </Reveal>
@@ -64,7 +64,7 @@ export default function BoiteAIdeesPage() {
                 Petite ou grande, précise ou encore floue&nbsp;: votre idée
                 nous intéresse. Elle est lue avec attention par l&rsquo;APEA.
               </p>
-              <p className="mt-4 text-sm text-navy-900/50">
+              <p className="mt-4 text-sm text-navy-900/70">
                 Nous ne pouvons pas promettre que chaque idée sera réalisée,
                 mais aucune n&rsquo;est ignorée.
               </p>

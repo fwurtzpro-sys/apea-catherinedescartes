@@ -40,7 +40,7 @@ export default function ActivitesEnfantsPage() {
       <Container className="py-16 sm:py-20">
         <Reveal strong className="relative mx-auto max-w-2xl text-center">
           <ActivitiesDoodle className="mx-auto mb-2 h-8 w-24 sm:absolute sm:-top-6 sm:left-1/2 sm:mb-0 sm:-translate-x-1/2" />
-          <p className="text-sm font-bold uppercase tracking-widest text-orange-500">
+          <p className="text-sm font-bold uppercase tracking-widest text-orange-a11y">
             À la maison
           </p>
           <h2 className="mt-2 text-3xl font-extrabold text-navy-900 sm:text-4xl">
@@ -50,7 +50,7 @@ export default function ActivitesEnfantsPage() {
             Choisissez le niveau de votre enfant et découvrez des activités
             simples à télécharger et à imprimer à la maison.
           </p>
-          <p className="mt-2 text-sm text-navy-900/50">
+          <p className="mt-2 text-sm text-navy-900/70">
             De nouvelles activités pourront être ajoutées au fil de
             l&rsquo;année.
           </p>

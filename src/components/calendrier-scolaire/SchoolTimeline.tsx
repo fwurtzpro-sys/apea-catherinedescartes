@@ -125,7 +125,7 @@ export function SchoolTimeline() {
                 <p className={`text-sm font-bold ${styles.text}`}>
                   {period.shortLabel}
                 </p>
-                <p className="mt-0.5 text-xs text-navy-900/50">
+                <p className="mt-0.5 text-xs text-navy-900/70">
                   {formatDateShort(period.startDate)}
                   {period.endDate && period.endDate !== period.startDate
                     ? ` – ${formatDateShort(period.endDate)}`

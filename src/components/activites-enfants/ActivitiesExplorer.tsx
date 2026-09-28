@@ -28,7 +28,7 @@ function FilterChip({
       aria-pressed={active}
       className={`rounded-full border-2 px-4 py-2 text-sm font-semibold transition-all duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
         active
-          ? "border-orange-500 bg-orange-500 text-white"
+          ? "border-orange-a11y bg-orange-a11y text-white"
           : "border-navy-900/10 bg-white text-navy-900 hover:border-orange-300"
       }`}
     >

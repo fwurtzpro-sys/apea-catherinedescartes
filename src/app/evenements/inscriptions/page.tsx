@@ -5,11 +5,26 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { HeartDoodle } from "@/components/ui/Decorations";
 import { VolunteerForm } from "@/components/evenements/VolunteerForm";
+import { OG_DEFAULTS, TWITTER_DEFAULTS } from "@/lib/seo";
+
+const TITLE = "Inscriptions";
+const DESCRIPTION =
+  "Proposez votre aide bénévole pour les événements organisés par l'APEA Catherine Descartes à Elven.";
 
 export const metadata: Metadata = {
-  title: "Inscriptions",
-  description:
-    "Proposez votre aide bénévole pour les événements organisés par l'APEA Catherine Descartes à Elven.",
+  title: TITLE,
+  description: DESCRIPTION,
+  openGraph: {
+    ...OG_DEFAULTS,
+    url: "/evenements/inscriptions",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    ...TWITTER_DEFAULTS,
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function InscriptionsPage() {

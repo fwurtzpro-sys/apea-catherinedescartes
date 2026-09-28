@@ -38,7 +38,7 @@ export function Logo({ className = "", variant = "dark" }: LogoProps) {
         <span className={`text-[11px] font-semibold sm:text-xs ${subTextColor}`}>
           Catherine Descartes
         </span>
-        <span className="font-script text-sm leading-none text-orange-400 sm:text-base">
+        <span className="font-script text-sm leading-none text-orange-a11y sm:text-base">
           {SITE.city}
         </span>
       </span>

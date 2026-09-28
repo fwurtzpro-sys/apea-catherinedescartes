@@ -175,7 +175,7 @@ export function VolunteerForm() {
         />
       </div>
 
-      <h2 className="text-lg font-bold uppercase tracking-wide text-orange-500">
+      <h2 className="text-lg font-bold uppercase tracking-wide text-orange-a11y">
         Vos coordonnées
       </h2>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -259,7 +259,7 @@ export function VolunteerForm() {
         </div>
       </div>
 
-      <h2 className="mt-8 text-lg font-bold uppercase tracking-wide text-orange-500">
+      <h2 className="mt-8 text-lg font-bold uppercase tracking-wide text-orange-a11y">
         Votre participation
       </h2>
       <div className="mt-4">
@@ -384,7 +384,7 @@ export function VolunteerForm() {
             ma demande de participation. Voir notre{" "}
             <a
               href="/politique-de-confidentialite"
-              className="font-semibold text-orange-500 underline hover:text-orange-600"
+              className="font-semibold text-orange-a11y underline hover:text-orange-600"
             >
               politique de confidentialité
             </a>

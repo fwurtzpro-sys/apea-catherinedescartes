@@ -215,7 +215,7 @@ export function IdeaBoxForm() {
                     setValues((v) => ({ ...v, category: option.value }))
                   }
                 />
-                <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-500 peer-checked:bg-orange-500 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
+                <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-a11y peer-checked:bg-orange-a11y peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
                   {option.label}
                 </span>
               </label>
@@ -280,7 +280,7 @@ export function IdeaBoxForm() {
               checked={values.contactMode === "anonymous"}
               onChange={() => setContactMode("anonymous")}
             />
-            <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-500 peer-checked:bg-orange-500 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
+            <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-a11y peer-checked:bg-orange-a11y peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
               Envoyer anonymement
             </span>
           </label>
@@ -292,7 +292,7 @@ export function IdeaBoxForm() {
               checked={values.contactMode === "contact"}
               onChange={() => setContactMode("contact")}
             />
-            <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-500 peer-checked:bg-orange-500 peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
+            <span className="inline-flex items-center rounded-full border-2 border-navy-900/10 px-4 py-2 text-sm font-medium text-navy-900 transition-all duration-200 ease-out hover:border-orange-300 peer-checked:border-orange-a11y peer-checked:bg-orange-a11y peer-checked:text-white peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-orange-500">
               Je souhaite pouvoir être recontacté(e)
             </span>
           </label>
@@ -363,7 +363,7 @@ export function IdeaBoxForm() {
           </div>
           <div>
             <label htmlFor="phone" className="text-sm font-semibold text-navy-900">
-              Téléphone <span className="text-navy-900/40">(facultatif)</span>
+              Téléphone <span className="text-navy-900/70">(facultatif)</span>
             </label>
             <input
               id="phone"
@@ -400,7 +400,7 @@ export function IdeaBoxForm() {
                 ma suggestion et, si nécessaire, de me recontacter. Voir notre{" "}
                 <a
                   href="/politique-de-confidentialite"
-                  className="font-semibold text-orange-500 underline hover:text-orange-600"
+                  className="font-semibold text-orange-a11y underline hover:text-orange-600"
                 >
                   politique de confidentialité
                 </a>
