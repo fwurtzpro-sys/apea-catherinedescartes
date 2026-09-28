@@ -76,6 +76,7 @@ export function Hero() {
                 className="object-cover"
                 loading="eager"
                 fetchPriority="high"
+                quality={70}
               />
             </div>
           </Reveal>

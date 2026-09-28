@@ -18,6 +18,7 @@ export function About() {
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-cover"
+            quality={70}
           />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-navy-950/70 via-navy-950/20 to-transparent" />
           <p className="font-script pointer-events-none absolute bottom-6 left-6 text-2xl leading-tight text-white drop-shadow sm:text-3xl">

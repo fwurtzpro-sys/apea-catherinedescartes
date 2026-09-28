@@ -33,6 +33,7 @@ export function EventCard({
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="object-contain p-4"
+            quality={70}
           />
         </div>
       ) : (
