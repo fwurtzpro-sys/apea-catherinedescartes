@@ -130,9 +130,9 @@ export const CHILDREN_ACTIVITIES: ChildActivity[] = [
   { id: "ce2-aigle-montagnes", title: "L’aigle dans les montagnes", levels: ["CE2"], type: "coloriage", available: true, pdf: "/DESSIN/CE2/06_CE2_L_aigle_dans_les_montagnes_A4.pdf", thumbnail: "/DESSIN/previews/CE2/06_CE2_L_aigle_dans_les_montagnes_A4.webp" },
 
   // CM1
-  { id: "cm1-mandala-floral", title: "Mandala floral", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/01_CM1_Mandala_floral_A4.pdf", thumbnail: "/DESSIN/previews/CM1/01_CM1_Mandala_floral_A4.webp" },
-  { id: "cm1-mandala-papillon", title: "Mandala papillon", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/02_CM1_Mandala_papillon_A4.pdf", thumbnail: "/DESSIN/previews/CM1/02_CM1_Mandala_papillon_A4.webp" },
-  { id: "cm1-licorne-fleurie", title: "Licorne fleurie", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/03_CM1_Licorne_fleurie_A4.pdf", thumbnail: "/DESSIN/previews/CM1/03_CM1_Licorne_fleurie_A4.webp" },
+  { id: "cm1-mandala-floral", title: "Mandala floral", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/01_CM1_Mandala_floral_A4.pdf", thumbnail: "/DESSIN/previews/CM1/01_CM1_Mandala_floral_A4-v2.webp" },
+  { id: "cm1-mandala-papillon", title: "Mandala papillon", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/02_CM1_Mandala_papillon_A4.pdf", thumbnail: "/DESSIN/previews/CM1/02_CM1_Mandala_papillon_A4-v2.webp" },
+  { id: "cm1-licorne-fleurie", title: "Licorne fleurie", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/03_CM1_Licorne_fleurie_A4.pdf", thumbnail: "/DESSIN/previews/CM1/03_CM1_Licorne_fleurie_A4-v2.webp" },
   { id: "cm1-fee-jardin", title: "La fée dans son jardin enchanté", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/04_CM1_La_fee_dans_son_jardin_enchante_A4_UNE_PAGE.pdf", thumbnail: "/DESSIN/previews/CM1/04_CM1_La_fee_dans_son_jardin_enchante_A4_UNE_PAGE.webp" },
   { id: "cm1-tigre-jungle", title: "Le tigre dans la jungle", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/05_CM1_Le_tigre_dans_la_jungle_A4.pdf", thumbnail: "/DESSIN/previews/CM1/05_CM1_Le_tigre_dans_la_jungle_A4.webp" },
   { id: "cm1-mandala-lune-etoiles", title: "Mandala lune, étoiles et fleurs", levels: ["CM1"], type: "coloriage", available: true, pdf: "/DESSIN/CM1/06_CM1_Mandala_lune_etoiles_et_fleurs_A4.pdf", thumbnail: "/DESSIN/previews/CM1/06_CM1_Mandala_lune_etoiles_et_fleurs_A4.webp" },
