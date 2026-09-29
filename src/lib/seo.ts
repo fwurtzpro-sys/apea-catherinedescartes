@@ -12,10 +12,10 @@
  */
 
 export const OG_IMAGE = {
-  url: "/og-apea-catherine-descartes.png",
+  url: "/og-apea-koala-v2.png",
   width: 1200,
   height: 630,
-  alt: "APEA de l'école Catherine Descartes à Elven",
+  alt: "APEA Catherine Descartes — Association des Parents d'Élèves à Elven",
 };
 
 export const OG_DEFAULTS = {
