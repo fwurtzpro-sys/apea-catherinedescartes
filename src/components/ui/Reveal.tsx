@@ -86,17 +86,27 @@ export function Reveal({
     if (el.getBoundingClientRect().top < window.innerHeight * 0.92) return;
 
     setHidden(true);
+    const reveal = () => setHidden(false);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setHidden(false);
+          reveal();
           observer.disconnect();
         }
       },
       { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // Safety net: some mobile browsers can fail to ever report an
+    // intersection (e.g. iOS Safari's address bar resizing the viewport
+    // mid-scroll). Content must never stay hidden indefinitely.
+    const safetyTimer = window.setTimeout(reveal, 1500);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(safetyTimer);
+    };
   }, [immediate]);
 
   const offsetMap = strong ? HIDDEN_OFFSET_STRONG : HIDDEN_OFFSET;
