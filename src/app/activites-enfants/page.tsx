@@ -56,9 +56,15 @@ export default function ActivitesEnfantsPage() {
           </p>
         </Reveal>
 
-        <Reveal delay={80} className="mt-12">
+        {/*
+          Deliberately not wrapped in <Reveal>: this is the page's critical
+          content (level filters + all activity cards). It must always be
+          visible immediately, with no dependency on IntersectionObserver,
+          hydration timing, or any entrance animation.
+        */}
+        <div className="mt-12">
           <ActivitiesExplorer />
-        </Reveal>
+        </div>
 
         <Reveal className="mx-auto mt-16 max-w-3xl overflow-hidden rounded-[2.5rem] bg-navy-900 p-8 text-center text-white sm:p-12">
           <p className="text-sm font-bold uppercase tracking-widest text-orange-400">

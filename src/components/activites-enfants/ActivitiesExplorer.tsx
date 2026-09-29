@@ -1,7 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Reveal } from "@/components/ui/Reveal";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { ActivityCard } from "@/components/activites-enfants/ActivityCard";
 import {
@@ -79,10 +78,8 @@ export function ActivitiesExplorer() {
           />
         ) : (
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((activity, index) => (
-              <Reveal key={activity.id} delay={(index % 6) * 50}>
-                <ActivityCard activity={activity} />
-              </Reveal>
+            {filtered.map((activity) => (
+              <ActivityCard key={activity.id} activity={activity} />
             ))}
           </div>
         )}
