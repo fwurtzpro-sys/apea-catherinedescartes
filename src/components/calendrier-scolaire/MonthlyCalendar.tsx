@@ -3,14 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import {
+  APEA_EVENTS,
   CALENDAR_END_MONTH,
   CALENDAR_START_MONTH,
   PUBLIC_HOLIDAYS,
   SCHOOL_PERIODS,
 } from "@/lib/school-calendar-data";
 import {
+  findApeaEvents,
   findPublicHoliday,
   formatDateDayMonth,
+  formatEventDateRange,
   isDateInAnyBreak,
 } from "@/lib/school-calendar-logic";
 import { useTodayISO } from "@/lib/use-today-iso";
@@ -85,6 +88,10 @@ export function MonthlyCalendar() {
   const monthHolidays = PUBLIC_HOLIDAYS.filter((h) =>
     h.date.startsWith(monthPrefix)
   );
+  const monthLastDay = `${monthPrefix}-${pad(new Date(year, month, 0).getDate())}`;
+  const monthEvents = APEA_EVENTS.filter(
+    (e) => e.startDate <= monthLastDay && (e.endDate ?? e.startDate) >= `${monthPrefix}-01`
+  );
 
   function goTo(delta: number) {
     hasUserNavigated.current = true;
@@ -138,6 +145,7 @@ export function MonthlyCalendar() {
             const isToday = today === cell.iso;
             const isBreak = isDateInAnyBreak(cell.iso, SCHOOL_PERIODS);
             const holiday = findPublicHoliday(cell.iso, PUBLIC_HOLIDAYS);
+            const dayEvents = findApeaEvents(cell.iso, APEA_EVENTS);
             return (
               <div
                 key={i}
@@ -164,6 +172,25 @@ export function MonthlyCalendar() {
                     />
                   </>
                 )}
+                {dayEvents.length > 0 && (
+                  <>
+                    <span className="sr-only">
+                      {" "}
+                      — événement APEA : {dayEvents.map((e) => e.label).join(", ")}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute top-1 left-1/2 flex -translate-x-1/2 gap-0.5"
+                    >
+                      {dayEvents.map((e) => (
+                        <span
+                          key={e.id}
+                          className="h-1.5 w-1.5 rounded-full bg-navy-900"
+                        />
+                      ))}
+                    </span>
+                  </>
+                )}
               </div>
             );
           })}
@@ -179,6 +206,20 @@ export function MonthlyCalendar() {
                 className="h-1.5 w-1.5 shrink-0 rounded-full bg-orange-500"
               />
               {formatDateDayMonth(holiday.date)} — {holiday.name}
+            </p>
+          ))}
+        </div>
+      )}
+
+      {monthEvents.length > 0 && (
+        <div className="mt-4 flex flex-col gap-1 text-sm text-navy-900/70">
+          {monthEvents.map((event) => (
+            <p key={event.id} className="flex items-center gap-2">
+              <span
+                aria-hidden="true"
+                className="h-1.5 w-1.5 shrink-0 rounded-full bg-navy-900"
+              />
+              {formatEventDateRange(event)} — {event.label}
             </p>
           ))}
         </div>
@@ -200,6 +241,10 @@ export function MonthlyCalendar() {
         <span className="flex items-center gap-1.5">
           <span className="h-1.5 w-1.5 rounded-full bg-orange-500" aria-hidden="true" />
           Jour férié
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="h-1.5 w-1.5 rounded-full bg-navy-900" aria-hidden="true" />
+          Événement APEA
         </span>
       </div>
     </div>

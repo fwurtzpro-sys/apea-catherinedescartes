@@ -1,4 +1,8 @@
-import type { PublicHoliday, SchoolPeriod } from "@/lib/school-calendar-data";
+import type {
+  ApeaCalendarEvent,
+  PublicHoliday,
+  SchoolPeriod,
+} from "@/lib/school-calendar-data";
 
 /**
  * Pure date/period logic for the school calendar page, kept independent
@@ -160,4 +164,33 @@ export function formatDateDayMonth(iso: string): string {
     day: "numeric",
     month: "long",
   });
+}
+
+/** The APEA events covering `iso` (inclusive) — a day can carry more than
+ * one (e.g. the Carnaval falls inside the whole-May saucisson sale). */
+export function findApeaEvents(
+  iso: string,
+  events: ApeaCalendarEvent[]
+): ApeaCalendarEvent[] {
+  // `isWithin`'s missing-end means "open-ended" (used for the summer
+  // break, which has no resumption date) — a one-day event instead means
+  // "ends the same day it starts", so the fallback must be explicit here.
+  return events.filter((e) => isWithin(iso, e.startDate, e.endDate ?? e.startDate));
+}
+
+/** "1 – 31 décembre" for a range, or "29 janvier" for a single day — used
+ * in the event list below the monthly grid. */
+export function formatEventDateRange(event: ApeaCalendarEvent): string {
+  if (!event.endDate || event.endDate === event.startDate) {
+    return formatDateDayMonth(event.startDate);
+  }
+  const startDay = toNoonDate(event.startDate).toLocaleDateString("fr-FR", {
+    day: "numeric",
+  });
+  const startMonth = event.startDate.slice(0, 7);
+  const endMonth = event.endDate.slice(0, 7);
+  if (startMonth === endMonth) {
+    return `${startDay} – ${formatDateDayMonth(event.endDate)}`;
+  }
+  return `${formatDateDayMonth(event.startDate)} – ${formatDateDayMonth(event.endDate)}`;
 }

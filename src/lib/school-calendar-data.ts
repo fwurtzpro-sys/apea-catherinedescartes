@@ -89,6 +89,68 @@ export const PUBLIC_HOLIDAYS: PublicHoliday[] = [
   { date: "2027-07-14", name: "Fête nationale" },
 ];
 
+export type ApeaCalendarEvent = {
+  /** Stable id, used only as a React key. */
+  id: string;
+  /** Intitulé exact communiqué par l'APEA. */
+  label: string;
+  /** Premier jour de l'événement (ou jour unique), ISO. */
+  startDate: string;
+  /** Dernier jour de l'événement (inclus). Absent pour un événement d'un seul jour. */
+  endDate?: string;
+};
+
+/**
+ * Événements APEA de l'année scolaire 2026-2027, communiqués par
+ * l'association — aucune date, horaire, lieu ou détail n'est inventé ici
+ * au-delà de ce qui a été transmis.
+ */
+export const APEA_EVENTS: ApeaCalendarEvent[] = [
+  {
+    id: "vente-sapins-chocolats-bougies",
+    label: "Opération de vente de sapins, chocolats et bougies",
+    startDate: "2026-12-01",
+    endDate: "2026-12-31",
+  },
+  {
+    id: "soiree-cinema",
+    label: "Soirée cinéma",
+    startDate: "2027-01-29",
+  },
+  {
+    id: "journee-numerizen",
+    label: "Journée Numérizen",
+    startDate: "2027-02-06",
+  },
+  {
+    id: "weekend-structures-gonflables",
+    label: "Week-end structures gonflables",
+    startDate: "2027-03-06",
+    endDate: "2027-03-07",
+  },
+  {
+    id: "vente-saucissons",
+    label: "Vente de saucissons",
+    startDate: "2027-05-01",
+    endDate: "2027-05-31",
+  },
+  {
+    id: "carnaval",
+    label: "Carnaval",
+    startDate: "2027-05-10",
+  },
+  {
+    id: "kermesse",
+    label: "Kermesse",
+    startDate: "2027-06-26",
+  },
+  {
+    id: "boum-cm2",
+    label: "Boum des CM2",
+    startDate: "2027-06-29",
+  },
+];
+
 export const SCHOOL_PERIODS: SchoolPeriod[] = [
   {
     id: "rentree",
