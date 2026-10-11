@@ -27,6 +27,18 @@ export function SchoolCalendarBubble() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // A page restored from the back-forward cache never re-runs the effect
+  // above. If the restored snapshot happened to freeze `mounted` at its
+  // initial `false` value, this real navigation shortcut would otherwise
+  // stay permanently invisible with nothing left to reveal it.
+  useEffect(() => {
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) setMounted(true);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
   // A single, brief pulse on the icon shortly after it appears — never
   // repeats — to draw the eye once without becoming a permanent animation.
   useEffect(() => {

@@ -61,6 +61,24 @@ export function Reveal({
   const ref = useRef<HTMLDivElement>(null);
   const [hidden, setHidden] = useState(false);
 
+  // A page restored from the browser's back-forward cache (bfcache) — a
+  // frozen DOM/JS snapshot, common when returning to a backgrounded tab on
+  // iOS Safari — never re-runs mount effects, so an element frozen mid-fade
+  // (or still hidden, its safety timer discarded with the rest of the page)
+  // would otherwise have nothing left to revive it. This is a defensive
+  // addition for that known category of real-world browser behavior, not a
+  // locally-reproduced bug: this sandbox's headless Chromium never actually
+  // restored a page with `persisted: true` (confirmed by instrumenting the
+  // event directly), so this exact failure mode could not be demonstrated
+  // here — only reasoned about and guarded against at effectively zero cost.
+  useEffect(() => {
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) setHidden(false);
+    };
+    window.addEventListener("pageshow", onPageShow);
+    return () => window.removeEventListener("pageshow", onPageShow);
+  }, []);
+
   useIsomorphicLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
