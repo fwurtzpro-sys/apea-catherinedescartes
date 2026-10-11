@@ -1,0 +1,77 @@
+name: Deploy to Hostinger (manual)
+
+# Manual-only: this workflow never runs on push. It stays completely
+# inert until someone explicitly runs it from the Actions tab AND the
+# 5 repository secrets below exist — see docs/deploiement-hostinger.md
+# for the one-time setup and exactly what this does.
+#
+# What it does on the server, over SSH, in the existing app directory
+# (no new app, no env var changes, no DNS/domain changes):
+#   git fetch + git reset --hard to this branch's latest commit
+#   npm ci && npm run build
+#   touch tmp/restart.txt (graceful Passenger-style restart, no downtime)
+#
+# This exists because Hostinger's own "Redeploy" button in hPanel can
+# fail to save its deployment settings (ticket #23782492) — this path
+# updates the same on-server git checkout a totally different way, so
+# it works independently of whatever is broken in that specific button.
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "deploy" to run this against the live site'
+        required: true
+
+jobs:
+  deploy:
+    if: github.event.inputs.confirm == 'deploy'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check required secrets are set
+        run: |
+          missing=0
+          for name in HOSTINGER_SSH_HOST HOSTINGER_SSH_PORT HOSTINGER_SSH_USERNAME HOSTINGER_SSH_PRIVATE_KEY HOSTINGER_APP_PATH; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing repository secret: $name"
+              missing=1
+            fi
+          done
+          if [ "$missing" = "1" ]; then
+            echo "::error::See docs/deploiement-hostinger.md for how to set these 5 secrets, then re-run this workflow."
+            exit 1
+          fi
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          HOSTINGER_SSH_USERNAME: ${{ secrets.HOSTINGER_SSH_USERNAME }}
+          HOSTINGER_SSH_PRIVATE_KEY: ${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}
+          HOSTINGER_APP_PATH: ${{ secrets.HOSTINGER_APP_PATH }}
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "${{ secrets.HOSTINGER_SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "${{ secrets.HOSTINGER_SSH_PORT }}" "${{ secrets.HOSTINGER_SSH_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Pull latest commit, build, and restart on Hostinger
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "${{ secrets.HOSTINGER_SSH_PORT }}" \
+            -o StrictHostKeyChecking=yes \
+            "${{ secrets.HOSTINGER_SSH_USERNAME }}@${{ secrets.HOSTINGER_SSH_HOST }}" \
+            'set -e
+             cd "${{ secrets.HOSTINGER_APP_PATH }}"
+             echo "Deploying $(git rev-parse --abbrev-ref HEAD) from $(pwd)"
+             git fetch origin ${{ github.ref_name }}
+             git reset --hard "origin/${{ github.ref_name }}"
+             npm ci
+             npm run build
+             mkdir -p tmp
+             touch tmp/restart.txt
+             echo "Deployed commit: $(git rev-parse HEAD)"'
+
+      - name: Clean up SSH key
+        if: always()
+        run: rm -f ~/.ssh/id_deploy
