@@ -46,7 +46,7 @@ export default async function ColoriagePage({ params }: Props) {
   if (!activity) notFound();
 
   return (
-    <Container className="flex h-[calc(100vh-4.5rem)] flex-col py-6">
+    <Container className="flex h-[calc(100dvh-4.5rem)] flex-col py-6">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <Link
           href="/activites-enfants"
