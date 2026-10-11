@@ -130,7 +130,7 @@ export const APEA_EVENTS: ApeaCalendarEvent[] = [
   },
   {
     id: "vente-saucissons",
-    label: "Vente de saucissons",
+    label: "Vente de saucissons (dates à confirmer)",
     startDate: "2027-05-01",
     endDate: "2027-05-31",
   },
